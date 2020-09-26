@@ -8,18 +8,18 @@ import cn.nukkit.form.element.ElementNPCButton;
 public class FormNPCResponseStudent extends FormNPCResponse {
 
     private final int clickedButtonId;
-    private final ElementButton clickedButton;
-
+    private final ElementNPCButton clickedButton;
+    
     public FormResponseSimple(int clickedButtonId, ElementNPCButton clickedButton) {
         this.clickedButtonId = clickedButtonId;
         this.clickedButton = clickedButton;
     }
-
+    
     public int getClickedButtonId() {
         return clickedButtonId;
     }
-
-    public ElementButton getClickedButton() {
+    
+    public ElementNPCButton getClickedButton() {
         return clickedButton;
     }
 }
