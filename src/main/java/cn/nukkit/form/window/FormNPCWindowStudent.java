@@ -18,7 +18,7 @@ public class FormNPCWindowStudent extends FormNPCWindow {
 
     private final String type = "student";
     private String message = "";
-    private List<ElementButton> buttons;
+    private List<ElementNPCButton> buttons;
     
     private Entity model;
     
