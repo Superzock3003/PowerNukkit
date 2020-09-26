@@ -11,6 +11,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * @author good777LUCKY
+ */
 public class FormNPCWindowStudent extends FormNPCWindow {
 
     private final String type = "student";
