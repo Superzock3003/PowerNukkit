@@ -108,10 +108,10 @@ public class FormNPCWindowStudent extends FormNPCWindow {
         this.response = new FormNPCResponseStudent(buttonID, buttons.get(buttonID));
     }
     
-    public String buttonsToJSON() {
-        JSONArray array = new JSONArray();
-        for (Button button : buttons.values()) {
-            array.put(new JSONObject(button.toJson()));
+    public String buttonsToJson() {
+        JsonArray array = new JsonArray();
+        for (ElementNPCButton button : buttons.values()) {
+            array.put(new JsonObject(button.toJson()));
         }
         return array.toString();
     }
