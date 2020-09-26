@@ -1,6 +1,6 @@
 package cn.nukkit.form.window;
 
-import cn.nukkit.form.response.FormResponse;
+import cn.nukkit.form.response.FormNPCResponse;
 
 import com.google.gson.Gson;
 
@@ -19,7 +19,7 @@ public abstract class FormNPCWindow {
     
     public abstract void setResponse(String data);
     
-    public abstract FormResponse getResponse();
+    public abstract FormNPCResponse getResponse();
     
     public boolean wasClosed() {
         return closed;
