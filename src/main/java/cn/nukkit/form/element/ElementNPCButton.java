@@ -34,11 +34,19 @@ public class ElementNPCButton {
         this.type = type;
     }
     
+    public String getButtonName() {
+        return buttonName;
+    }
+    
+    public void setButtonName(String buttonName) {
+        this.buttonName = buttonName;
+    }
+    
     public Object getData() {
         return data;
     }
     
-    public int setData(Object data) {
+    public void setData(Object data) {
         this.data = data;
     }
     
@@ -46,7 +54,7 @@ public class ElementNPCButton {
         return mode;
     }
     
-    public int setMode(int type) {
+    public void setMode(int type) {
         this.mode = mode;
     }
     
@@ -62,14 +70,14 @@ public class ElementNPCButton {
         return type;
     }
     
-    public int setType(int type) {
+    public void setType(int type) {
         this.type = type;
     }
     
     public String buttonToJSON() {
         JsonObject json = new JsonObject();
         
-        json.put("button_name", name);
+        json.put("button_name", buttonName);
         json.put("data", -1);
         json.put("mode", mode);
         json.put("text", text == null ? "" : text);
