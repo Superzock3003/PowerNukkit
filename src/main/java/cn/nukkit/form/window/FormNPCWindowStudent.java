@@ -5,8 +5,8 @@ import cn.nukkit.entity.data.EntityMetadata;
 import cn.nukkit.form.element.ElementNPCButton;
 import cn.nukkit.form.response.FormNPCResponseStudent;
 
-import com.google.gson.JSONArray;
-import com.google.gson.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
