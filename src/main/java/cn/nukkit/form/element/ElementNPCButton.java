@@ -1,6 +1,6 @@
 package cn.nukkit.form.element;
 
-import org.json.JSONObject;
+import com.google.gson.JSONObject;
 
 /**
  * @author good777LUCKY
