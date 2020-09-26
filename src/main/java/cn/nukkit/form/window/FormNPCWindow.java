@@ -3,6 +3,9 @@ package cn.nukkit.form.window;
 import cn.nukkit.form.response.FormResponse;
 import com.google.gson.Gson;
 
+/**
+ * @author good777LUCKY
+ */
 public abstract class FormNPCWindow {
 
     private static final Gson GSON = new Gson();
