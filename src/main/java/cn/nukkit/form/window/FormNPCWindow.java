@@ -14,7 +14,7 @@ public abstract class FormNPCWindow {
     protected boolean closed = false;
     
     public String getJSONData() {
-        return FormWindow.GSON.toJson(this);
+        return FormNPCWindow.GSON.toJson(this);
     }
     
     public abstract void setResponse(String data);
