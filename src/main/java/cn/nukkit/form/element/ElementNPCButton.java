@@ -67,14 +67,14 @@ public class ElementNPCButton {
     }
     
     public String buttonToJSON() {
-        JSONObject jsonObject = new JSONObject();
+        JsonObject json = new JsonObject();
         
-        jsonObject.put("button_name", name);
-        jsonObject.put("data", -1);
-        jsonObject.put("mode", mode);
-        jsonObject.put("text", text == null ? "" : text);
-        jsonObject.put("type", type);
+        json.put("button_name", name);
+        json.put("data", -1);
+        json.put("mode", mode);
+        json.put("text", text == null ? "" : text);
+        json.put("type", type);
         
-        return jsonObject.toString().replace("-1", "null");
+        return json.toString().replace("-1", "null");
     }
 }
