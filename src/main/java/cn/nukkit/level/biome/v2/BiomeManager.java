@@ -1,5 +1,9 @@
 package cn.nukkit.level.biome.v2;
 
+import cn.nukkit.level.biome.v2.data.BiomeID;
+import cn.nukkit.level.biome.v2.data.BiomeTemperatureType;
+import cn.nukkit.level.biome.v2.data.BiomeType;
+
 /**
  * @author GoodLucky777
  */
@@ -20,6 +24,6 @@ public class BiomeManager {
     }
     
     public void registerVanillaBiomes() {
-        
+        registerBiome(BiomeID.PLAINS.getId(), 0.1f, 0.8f, BiomeType.PLAINS, BiomeTemperatureType.LUSH);
     }
 }
