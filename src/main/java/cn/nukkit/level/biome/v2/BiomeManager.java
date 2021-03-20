@@ -4,6 +4,8 @@ import cn.nukkit.level.biome.v2.data.BiomeID;
 import cn.nukkit.level.biome.v2.data.BiomeTemperatureType;
 import cn.nukkit.level.biome.v2.data.BiomeType;
 
+import com.google.common.base.Preconditions;
+
 /**
  * @author GoodLucky777
  */
@@ -17,7 +19,7 @@ public class BiomeManager {
         this.registerVanillaBiomes();
     }
     
-    public void registerBiome(int id, float height, float temperature, BiomeType type, BiomeTemperatureType temperatureType) {
+    protected void registerBiome(int id, float height, float temperature, BiomeType type, BiomeTemperatureType temperatureType) {
         Preconditions.checkArgument(id >= 0 && id < MAX_BIOME_ID, "Biome ID " + id + " is out of range");
         
         biomes[id] = new Biome(id, height, temperature, type, temperatureType);
