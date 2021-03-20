@@ -19,7 +19,7 @@ public class BiomeManager {
         this.registerVanillaBiomes();
     }
     
-    protected void registerBiome(int id, float height, float temperature, BiomeType type, BiomeTemperatureType temperatureType) {
+    public void registerBiome(int id, float height, float temperature, BiomeType type, BiomeTemperatureType temperatureType) {
         Preconditions.checkArgument(id >= 0 && id < MAX_BIOME_ID, "Biome ID " + id + " is out of range");
         
         biomes[id] = new Biome(id, height, temperature, type, temperatureType);
