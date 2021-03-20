@@ -5,7 +5,7 @@ package cn.nukkit.level.biome.v2.layer;
  */
 public class LayerHelper {
 
-    public static long mcStepSeed(long s, long start) {
+    public static long mcStepSeed(long s, long salt) {
         return s * (s * 6364136223846793005L + 1442695040888963407L) + salt;
     }
     
