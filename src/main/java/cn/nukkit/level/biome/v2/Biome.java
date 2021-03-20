@@ -3,6 +3,9 @@ package cn.nukkit.level.biome.v2;
 import cn.nukkit.level.biome.v2.data.BiomeType;
 import cn.nukkit.level.biome.v2.data.BiomeTemperatureType;
 
+/**
+ * @author GoodLucky777
+ */
 public class Biome {
 
     private final int id;
