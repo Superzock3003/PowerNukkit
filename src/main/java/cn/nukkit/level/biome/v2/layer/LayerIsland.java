@@ -5,10 +5,6 @@ package cn.nukkit.level.biome.v2.layer;
  */
 public class LayerIsland extends Layer {
 
-    public LayerIsland() {
-        super();
-    }
-    
     @Override
     public int[] generateBiomeValues(int x, int z, int width, int height, int[] parentValues) {
         int[] values;
@@ -18,7 +14,7 @@ public class LayerIsland extends Layer {
             values = parentValues;
         }
         
-        long startSeed = layer.getStartSeed();
+        long startSeed = this.getLayer().getStartSeed();
         long chunkSeed;
         
         for (int j = 0; j < height; j++) {
