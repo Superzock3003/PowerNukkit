@@ -16,6 +16,7 @@ public class LayerManager implements LayerType {
     
     public void initLayers(Layer[] layers) {
         layers[ISLAND_4096] = new LayerIsland();
+        layers[ZOOM_2048] = new LayerZoomIsland();
     }
     
     public void registerLayer(Layer layer, Layer parent, int salt) {
@@ -40,5 +41,6 @@ public class LayerManager implements LayerType {
         this.registerLayer(layers[ISLAND_4096], null, 1);
         this.registerLayer(layers[ZOOM_2048], layers[ISLAND_4096], 2000);
         
+        this.layers = layers;
     }
 }
