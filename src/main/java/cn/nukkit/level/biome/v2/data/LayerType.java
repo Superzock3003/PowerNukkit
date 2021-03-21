@@ -18,4 +18,6 @@ public interface LayerType {
     int COOL_WARM_1024 = 10;
     int HEAT_ICE_1024 = 11;
     int SPECIAL_1024 = 12;
+    
+    int LAYER_COUNT = 13;
 }
