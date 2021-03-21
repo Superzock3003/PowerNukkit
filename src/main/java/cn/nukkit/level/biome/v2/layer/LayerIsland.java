@@ -14,7 +14,7 @@ public class LayerIsland extends Layer {
             values = parentValues;
         }
         
-        long startSeed = super.getLayer().getStartSeed();
+        long startSeed = this.getStartSeed();
         long chunkSeed;
         
         for (int j = 0; j < height; j++) {
