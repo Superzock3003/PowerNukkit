@@ -14,7 +14,7 @@ public class LayerManager implements LayerType {
         this.registerVanillaLayers();
     }
     
-    public void initLayers(Layer[] layers) {
+    public void initVanillaLayers(Layer[] layers) {
         layers[ISLAND_4096] = new LayerIsland();
         layers[ZOOM_2048] = new LayerZoomIsland();
     }
@@ -36,7 +36,7 @@ public class LayerManager implements LayerType {
         LayerStack layerStack = new LayerStack();
         Layer[] layers = layerStack.getLayers();
         
-        this.initLayers(layers);
+        this.initVanillaLayers(layers);
         
         this.registerLayer(layers[ISLAND_4096], null, 1);
         this.registerLayer(layers[ZOOM_2048], layers[ISLAND_4096], 2000);
