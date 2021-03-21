@@ -3,8 +3,8 @@ package cn.nukkit.level.biome.v2.layer;
 import cn.nukkit.level.biome.v2.data.LayerType;
 import cn.nukkit.level.generator.noise.vanilla.f.NoiseGeneratorPerlinF;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author GoodLucky777
