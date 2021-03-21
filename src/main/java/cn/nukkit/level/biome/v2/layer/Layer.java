@@ -8,7 +8,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Layer {
+public abstract class Layer {
 
     private long layerSalt;
     private long startSalt;
