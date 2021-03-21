@@ -55,22 +55,22 @@ public class LayerZoomIsland extends Layer {
                 
                 int cs = ss;
                 cs += chunkX;
-                cs *= cs * 1284865837 + 4150755663;
+                cs *= cs * (int)1284865837L + (int)4150755663L;
                 cs += chunkZ;
-                cs *= cs * 1284865837 + 4150755663;
+                cs *= cs * (int)1284865837L + (int)4150755663L;
                 cs += chunkX;
-                cs *= cs * 1284865837 + 4150755663;
+                cs *= cs * (int)1284865837L + (int)4150755663L;
                 cs += chunkZ;
                 
                 buf[idx] = v00;
                 buf[idx + newW] = (cs >> 24) & 1 ? v01 : v00;
                 idx++;
                 
-                cs *= cs * 1284865837 + 4150755663;
+                cs *= cs * (int)1284865837L + (int)4150755663L;
                 cs += st;
                 buf[idx] = (cs >> 24) & 1 ? v10 : v00;
                 
-                cs *= cs * 1284865837 + 4150755663;
+                cs *= cs * (int)1284865837L + (int)4150755663L;
                 cs += st;
                 int r = (cs >> 24) & 3;
                 buf[idx + newW] = r == 0 ? v00 : r == 1 ? v10 : r == 2 ? v01 : v11;
