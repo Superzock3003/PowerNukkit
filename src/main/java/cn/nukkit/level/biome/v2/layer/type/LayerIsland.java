@@ -1,4 +1,6 @@
-package cn.nukkit.level.biome.v2.layer;
+package cn.nukkit.level.biome.v2.layer.type;
+
+import cn.nukkit.level.biome.v2.layer.Layer;
 
 /**
  * @author GoodLucky777
