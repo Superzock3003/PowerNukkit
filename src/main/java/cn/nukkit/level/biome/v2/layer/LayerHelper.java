@@ -9,6 +9,18 @@ public class LayerHelper {
         return s * (s * 6364136223846793005L + 1442695040888963407L) + salt;
     }
     
+    public static int mcFirstInt(long salt, int mod) {
+        int returnValue = (int)((salt >> 24) % mod);
+        if (returnValue < 0) {
+            returnValue += mod;
+        }
+        return returnValue;
+    }
+    
+    public static int mcFirstIsZero(long salt, int mod) {
+        return (int)((salt >> 24) % mod) == 0;
+    }
+    
     public static long getChunkSeed(long startSeed, int x, int z) {
         long chunkSeed = startSeed + x;
         chunkSeed = mcStepSeed(chunkSeed, z);
@@ -19,8 +31,8 @@ public class LayerHelper {
     
     public static long getLayerSalt(long salt) {
         long layerSalt = mcStepSeed(salt, salt);
-        layerSalt = mcStepSeed(ls, salt);
-        layerSalt = mcStepSeed(ls, salt);
+        layerSalt = mcStepSeed(layerSalt, salt);
+        layerSalt = mcStepSeed(layerSalt, salt);
         return layerSalt;
     }
 }
