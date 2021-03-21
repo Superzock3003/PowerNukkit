@@ -3,8 +3,8 @@ package cn.nukkit.level.biome.v2;
 import cn.nukkit.level.biome.v2.data.BiomeType;
 import cn.nukkit.level.biome.v2.data.BiomeTemperatureType;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * @author GoodLucky777
