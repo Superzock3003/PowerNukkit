@@ -1,6 +1,7 @@
 package cn.nukkit.level.biome.v2.layer;
 
 import cn.nukkit.level.biome.v2.data.LayerType;
+import cn.nukkit.level.biome.v2.layer.type.*;
 
 /**
  * @author GoodLucky777
@@ -11,6 +12,10 @@ public class LayerManager implements LayerType {
     
     public void init() {
         this.registerVanillaLayers();
+    }
+    
+    public void initLayers(Layer[] layers) {
+        layers[ISLAND_4096] = new LayerIsland();
     }
     
     public void registerLayer(Layer layer, Layer parent, int salt) {
