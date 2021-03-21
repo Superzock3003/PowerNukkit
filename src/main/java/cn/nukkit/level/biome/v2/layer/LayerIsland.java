@@ -10,8 +10,13 @@ public class LayerIsland extends Layer {
     }
     
     @Override
-    public int[] generateBiomeValues(int x, int z, int width, int height) {
-        int[] values = new int[width * height];
+    public int[] generateBiomeValues(int x, int z, int width, int height, int[] parentValues) {
+        int[] values;
+        if (parentValues == null) {
+            values = new int[width * height]; 
+        } else {
+            values = parentValues;
+        }
         
         long startSeed = layer.getStartSeed();
         long chunkSeed;
