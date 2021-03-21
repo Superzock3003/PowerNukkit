@@ -9,7 +9,8 @@ public class LayerIsland extends Layer {
         super();
     }
     
-    public int[] generate(Layer layer, int x, int z, int width, int height) {
+    @Override
+    public int[] generateBiomeValues(int x, int z, int width, int height) {
         int[] values = new int[width * height];
         
         long startSeed = layer.getStartSeed();
