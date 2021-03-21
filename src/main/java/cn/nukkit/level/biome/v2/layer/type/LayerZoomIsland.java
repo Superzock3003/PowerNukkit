@@ -26,7 +26,7 @@ public class LayerZoomIsland extends Layer {
         int newW = (pW) << 1;
         int newH = (pH) << 1;
         int idx, v00, v01, v10, v11;
-        int buf = (int) malloc((newW + 1) * (newH + 1) * sizeof(buf));
+        int buf[] = new int[(newW + 1) * (newH + 1)];
         
         final int st = (int) this.getStartSalt();
         final int ss = (int) this.getStartSeed();
@@ -79,10 +79,8 @@ public class LayerZoomIsland extends Layer {
         }
         
         for (j = 0; j < h; j++) {
-            memcpy(values[j * width], buf[(j + (z & 1)) * newW + (x & 1)], width * sizeof(int));
+            System.arraycopy(values[j * width], 0, buf[(j + (z & 1)) * newW + (x & 1)], 0, width * 4);
         }
-        
-        //free(buf);
         
         return values;
     }
