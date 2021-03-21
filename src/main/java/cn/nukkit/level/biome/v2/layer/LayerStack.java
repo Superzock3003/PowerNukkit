@@ -13,7 +13,11 @@ import lombok.Setter;
 public class LayerStack {
 
     private Layer[] layers;
-    private Layer entry_1;
-    private Layer entry_4;
+    private Layer entry1;
+    private Layer entry4;
     private NoiseGeneratorPerlinF oceanRnd;
+    
+    public int[] generateBiomeData(int x, int z, int width, int height) {
+        layers[layers.length].generateBiomeData(x, z, width, height);
+    }
 }
