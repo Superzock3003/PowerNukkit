@@ -1,7 +1,7 @@
 package cn.nukkit.level.biome.v2.layer;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author GoodLucky777
