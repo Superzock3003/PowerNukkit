@@ -20,7 +20,7 @@ public class LayerIsland extends Layer {
         for (int j = 0; j < height; j++) {
             for (int i = 0; i < width; i++) {
                 chunkSeed = LayerHelper.getChunkSeed(startSeed, i + x, j + z);
-                values[i + (j * width)] = LayerHelper.mcFirstIsZero(chunkSeed, 10);
+                values[i + (j * width)] = LayerHelper.mcFirstIsZero(chunkSeed, 10) ? 1 : 0;
             }
         }
         
