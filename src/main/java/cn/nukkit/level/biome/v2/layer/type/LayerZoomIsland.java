@@ -78,7 +78,7 @@ public class LayerZoomIsland extends Layer {
             }
         }
         
-        for (j = 0; j < h; j++) {
+        for (j = 0; j < height; j++) {
             System.arraycopy(values[j * width], 0, buf[(j + (z & 1)) * newW + (x & 1)], 0, width * 4);
         }
         
