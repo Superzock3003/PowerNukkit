@@ -18,7 +18,8 @@ public class Layer {
     private int scale;
     private int edge;
     //int (*getMap)(const Layer *, int *, int, int, int, int);
-    private Layer parent, parent2;
+    private Layer parent;
+    private Layer parent2;
     
     public abstract int[] generateBiomeValues(int x, int z, int width, int height, int[] parentValues);
     
