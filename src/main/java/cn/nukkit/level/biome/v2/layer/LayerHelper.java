@@ -16,4 +16,11 @@ public class LayerHelper {
         chunkSeed = mcStepSeed(chunkSeed, z);
         return chunkSeed;
     }
+    
+    public static long getLayerSalt(long salt) {
+        long layerSalt = mcStepSeed(salt, salt);
+        layerSalt = mcStepSeed(ls, salt);
+        layerSalt = mcStepSeed(ls, salt);
+        return layerSalt;
+    }
 }
