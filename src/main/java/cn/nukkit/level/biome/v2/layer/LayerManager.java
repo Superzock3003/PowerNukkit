@@ -14,10 +14,10 @@ public class LayerManager implements LayerType {
     }
     
     public void registerLayer(Layer layer, Layer parent, int salt) {
-        layer.setSalt(salt > 0 ? LayerHelper.getLayerSalt(salt) : salt);
+        layer.setLayerSalt(salt > 0 ? LayerHelper.getLayerSalt(salt) : salt);
         layer.setStartSalt(0);
         layer.setStartSeed(0);
-        layer.setParnet(parent);
+        layer.setParent(parent);
         layer.setParent2(null);
         layer.setScale(0);
         layer.setEdge(0);
