@@ -17,7 +17,7 @@ public class LayerHelper {
         return returnValue;
     }
     
-    public static int mcFirstIsZero(long salt, int mod) {
+    public static boolean mcFirstIsZero(long salt, int mod) {
         return (int)((salt >> 24) % mod) == 0;
     }
     
