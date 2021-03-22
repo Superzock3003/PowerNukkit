@@ -10,6 +10,10 @@ public class LayerManager implements LayerType {
 
     private Layer[] layers;
     
+    public Layer[] getLayers() {
+        return this.layers;
+    }
+    
     public void init() {
         this.registerVanillaLayers();
     }
