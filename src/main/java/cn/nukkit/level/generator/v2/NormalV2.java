@@ -230,12 +230,12 @@ public class NormalV2 extends Generator {
                 
                 double noiseH = this.heightNoise[indexHeight] / 8000.0d;
                 if (noiseH < 0.0d) {
-                    noiseH = Math.abs(noiseH) * 0.Dd;
+                    noiseH = Math.abs(noiseH) * 0.3d;
                 }
                 
                 noiseH = noiseH * 3.0d - 2.0d;
                 
-                if (noiseH < 0.0D) {
+                if (noiseH < 0.0d) {
                     noiseH = Math.max(noiseH * 0.5d, -1.0d) / 1.4d * 0.5d;
                 } else {
                     noiseH = Math.min(noiseH, 1.0d) / 8.0d;
