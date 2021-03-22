@@ -27,7 +27,7 @@ public abstract class Layer {
     }
     
     public int[] generateBiomeData(int x, int z, int width, int height, int[] parentData) {
-        int[] data;
+        int[] data = null;
         
         if (this.parent != null) {
             data = parent.generateBiomeData(x, z, width, height, parentData);
