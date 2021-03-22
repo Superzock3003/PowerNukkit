@@ -23,13 +23,15 @@ public class BiomeManager {
         this.registerVanillaBiomes();
     }
     
-    public void registerBiome(int id, float height, float temperature, BiomeType type, BiomeTemperatureType temperatureType) {
+    public void registerBiome(int id, float baseHeight, float heightVariation, float temperature, BiomeType type, BiomeTemperatureType temperatureType) {
         Preconditions.checkArgument(id >= 0 && id < MAX_BIOME_ID, "Biome ID " + id + " is out of range");
         
-        biomes[id] = new Biome(id, height, temperature, type, temperatureType);
+        biomes[id] = new Biome(id, baseHeight, heightVariation, temperature, type, temperatureType);
     }
     
     public void registerVanillaBiomes() {
-        registerBiome(BiomeID.PLAINS.getId(), 0.1f, 0.8f, BiomeType.PLAINS, BiomeTemperatureType.LUSH);
+        registerBiome(BiomeID.PLAINS.getId(), 0.1f, 0.05f, 0.8f, BiomeType.PLAINS, BiomeTemperatureType.LUSH);
+        
+        registerBiome(BiomeID.OCEAN.getId(), 1.0f, 0.1f, 0.5f, BiomeType.OCEAN, BiomeTemperatureType.OCEANIC);
     }
 }
