@@ -43,6 +43,7 @@ import cn.nukkit.level.generator.Flat;
 import cn.nukkit.level.generator.Generator;
 import cn.nukkit.level.generator.Nether;
 import cn.nukkit.level.generator.Normal;
+import cn.nukkit.level.generator.v2.NormalV2;
 import cn.nukkit.math.NukkitMath;
 import cn.nukkit.metadata.EntityMetadataStore;
 import cn.nukkit.metadata.LevelMetadataStore;
@@ -691,6 +692,7 @@ public class Server {
         Generator.addGenerator(Normal.class, "default", Generator.TYPE_INFINITE);
         Generator.addGenerator(Nether.class, "nether", Generator.TYPE_NETHER);
         //todo: add old generator and hell generator
+        Generator.addGenerator(NormalV2.class, "normalV2", Generator.TYPE_INFINITE);
 
         for (String name : this.getConfig("worlds", new HashMap<String, Object>()).keySet()) {
             if (!this.loadLevel(name)) {
