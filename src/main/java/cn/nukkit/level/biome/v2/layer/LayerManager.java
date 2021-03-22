@@ -10,6 +10,10 @@ public class LayerManager implements LayerType {
 
     private Layer[] layers;
     
+    public int[] generateBiomeData(int x, int z, int width, int height) {
+        return this.layers[0].generateBiomeData(x, z, width, height, null);
+    }
+    
     public Layer[] getLayers() {
         return this.layers;
     }
