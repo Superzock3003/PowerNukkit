@@ -6,6 +6,7 @@ import cn.nukkit.level.biome.v2.Biome;
 import cn.nukkit.level.biome.v2.BiomeManager;
 import cn.nukkit.level.biome.v2.layer.LayerManager;
 import cn.nukkit.level.format.generic.BaseFullChunk;
+import cn.nukkit.level.generator.Generator;
 import cn.nukkit.level.generator.noise.vanilla.f.NoiseGeneratorOctavesF;
 import cn.nukkit.level.generator.noise.vanilla.f.NoiseGeneratorPerlinF;
 import cn.nukkit.level.generator.populator.type.Populator;
