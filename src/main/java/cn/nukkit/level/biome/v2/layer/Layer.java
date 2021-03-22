@@ -30,10 +30,10 @@ public abstract class Layer {
         int[] data;
         
         if (this.parent != null) {
-            data = parent.generateBiomeData(x, z, width, height, data);
+            data = parent.generateBiomeData(x, z, width, height, parentData);
         }
         
-        data = this.generateBiomeValues(x, z, width, height, parentData);
+        data = this.generateBiomeValues(x, z, width, height, data);
         
         return data;
     }
