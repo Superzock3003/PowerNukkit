@@ -15,6 +15,10 @@ public class BiomeManager {
     
     public Biome[] biomes = new Biome[MAX_BIOME_ID];
     
+    public Biome getBiomeFromId(int id) {
+        return this.biomes[id];
+    }
+    
     public void init() {
         this.registerVanillaBiomes();
     }
