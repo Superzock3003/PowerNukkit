@@ -5,6 +5,7 @@ import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.biome.v2.Biome;
 import cn.nukkit.level.biome.v2.BiomeManager;
 import cn.nukkit.level.biome.v2.layer.LayerManager;
+import cn.nukkit.level.format.FullChunk;
 import cn.nukkit.level.format.generic.BaseFullChunk;
 import cn.nukkit.level.generator.Generator;
 import cn.nukkit.level.generator.noise.vanilla.d.NoiseGeneratorOctavesD;
@@ -58,8 +59,8 @@ public class NormalV2 extends Generator {
     
     private float coordinateScale = 684.412f;
     private float heightScale = 684.412f;
-    public float roughnessNoise2Scale = 512.0f;
     private float roughnessNoiseScale = 512.0f;
+    private float roughnessNoise2Scale = 512.0f;
     private float detailNoiseScaleX = 80.0f;
     private float detailNoiseScaleY = 160.0f;
     private float detailNoiseScaleZ = 80.0f;
@@ -98,8 +99,8 @@ public class NormalV2 extends Generator {
     private LayerManager layerManager;
     private int[] biomeData;
     
-    private List<Populator> populators = Lists.newArrayList();
-    private List<Populator> generationPopulators = Lists.newArrayList();
+    private List<Populator> populators = Collections.emptyList();
+    private List<Populator> generationPopulators = Collections.emptyList();
     
     public NormalV2() {
         this(Collections.emptyMap());
@@ -204,7 +205,7 @@ public class NormalV2 extends Generator {
                 for (int m = 0; m < 5; m++) {
                     for (int n = 0; n < 5; n++) {
                         Biome nearBiome = this.biomeManager.getBiomeFromId(this.biomeData[i + m + (j + n) * 10]);
-                        float heightBase = this.biomeHeightOffset + nearBiome.getHeight() * this.biomeHeightWeight;
+                        float heightBase = this.biomeHeightOffset + nearBiome.getBaseHeight() * this.biomeHeightWeight;
                         float heightScale = this.biomeScaleOffset + nearBiome.getHeightVariation() * this.biomeScaleWeight;
                         
                         // For amplified biome
@@ -215,7 +216,7 @@ public class NormalV2 extends Generator {
                         
                         float weight = this.biomeWeights[m + n * 5] / (heightBase + 2.0f);
                         
-                        if (nearBiome.getHeight() > biome.getHeight()) {
+                        if (nearBiome.getBaseHeight() > biome.getBaseHeight()) {
                             weight *= 0.5f;
                         }
                         
@@ -347,7 +348,7 @@ public class NormalV2 extends Generator {
         this.biomeData = this.layerManager.generateBiomeData(baseX, baseZ, 16, 16);
         for (int x = 0; x < 16; x++) {
             for (int z = 0; z < 16; z++) {
-                chunk.setBiome(x, z, this.biomeManager.getBiomeFromId(this.biomeData[x + (z * 16)]));
+                chunk.setBiomeId(x, z, this.biomeData[x + (z * 16)]);
             }
         }
         
