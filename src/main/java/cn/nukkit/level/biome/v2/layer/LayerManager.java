@@ -42,6 +42,7 @@ public class LayerManager implements LayerType {
     
     public void registerVanillaLayers() {
         LayerStack layerStack = new LayerStack();
+        layerStack.setLayers(new Layer[]);
         Layer[] layers = layerStack.getLayers();
         
         this.initVanillaLayers(layers);
