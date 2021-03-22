@@ -7,14 +7,15 @@ import cn.nukkit.level.biome.v2.BiomeManager;
 import cn.nukkit.level.biome.v2.layer.LayerManager;
 import cn.nukkit.level.format.generic.BaseFullChunk;
 import cn.nukkit.level.generator.Generator;
-import cn.nukkit.level.generator.noise.vanilla.f.NoiseGeneratorOctavesF;
-import cn.nukkit.level.generator.noise.vanilla.f.NoiseGeneratorPerlinF;
+import cn.nukkit.level.generator.noise.vanilla.d.NoiseGeneratorOctavesD;
+import cn.nukkit.level.generator.noise.vanilla.d.NoiseGeneratorPerlinD;
 import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.math.Vector3;
 
 import com.google.common.collect.ImmutableList;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -78,14 +79,14 @@ public class NormalV2 extends Generator {
     private long localSeed1;
     private long localSeed2;
     
-    private NoiseGeneratorOctavesF roughnessNoiseGen;
-    private NoiseGeneratorOctavesF roughnessNoise2Gen;
-    private NoiseGeneratorOctavesF detailNoiseGen;
-    private NoiseGeneratorPerlinF surfaceNoiseGen;
-    private NoiseGeneratorOctavesF scaleNoise;
-    private NoiseGeneratorOctavesF heightNoiseGen;
+    private NoiseGeneratorOctavesD roughnessNoiseGen;
+    private NoiseGeneratorOctavesD roughnessNoise2Gen;
+    private NoiseGeneratorOctavesD detailNoiseGen;
+    private NoiseGeneratorPerlinD surfaceNoiseGen;
+    private NoiseGeneratorOctavesD scaleNoise;
+    private NoiseGeneratorOctavesD heightNoiseGen;
     
-    private final double[][][] density = new double[5][5][33];
+    private double[][][] density;
     private float[] biomeWeights;
     
     private double[] detailNoise;
@@ -142,18 +143,18 @@ public class NormalV2 extends Generator {
         this.localSeed1 = ThreadLocalRandom.current().nextLong();
         this.localSeed2 = ThreadLocalRandom.current().nextLong();
         
-        this.roughnessNoiseGen = new NoiseGeneratorOctavesF(this.nukkitRandom, 16);
-        this.roughnessNoise2Gen = new NoiseGeneratorOctavesF(this.nukkitRandom, 16);
-        this.detailNoiseGen = new NoiseGeneratorOctavesF(this.nukkitRandom, 8);
-        this.surfaceNoiseGen = new NoiseGeneratorPerlinF(this.nukkitRandom, 4);
-        this.scaleNoise = new NoiseGeneratorOctavesF(this.nukkitRandom, 10);
-        this.heightNoiseGen = new NoiseGeneratorOctavesF(this.nukkitRandom, 16);
+        this.roughnessNoiseGen = new NoiseGeneratorOctavesD(this.nukkitRandom, 16);
+        this.roughnessNoise2Gen = new NoiseGeneratorOctavesD(this.nukkitRandom, 16);
+        this.detailNoiseGen = new NoiseGeneratorOctavesD(this.nukkitRandom, 8);
+        this.surfaceNoiseGen = new NoiseGeneratorPerlinD(this.nukkitRandom, 4);
+        this.scaleNoise = new NoiseGeneratorOctavesD(this.nukkitRandom, 10);
+        this.heightNoiseGen = new NoiseGeneratorOctavesD(this.nukkitRandom, 16);
         
-        this.heightMap = new double[825];
+        this.density = new double[5][5][33];
         this.biomeWeights = new float[25];
         for (int i = -2; i <= 2; i++) {
             for (int j = -2; j <= 2; j++) {
-                this.biomeWeights[i + 2 + (j + 2) * 5] = 10.0F / Math.sqrt((float)(i * i + j * j) + 0.2F);
+                this.biomeWeights[i + 2 + (j + 2) * 5] = 10.0f / (float) Math.sqrt((float) (i * i + j * j) + 0.2f);
             }
         }
         
@@ -202,7 +203,7 @@ public class NormalV2 extends Generator {
                 
                 for (int m = 0; m < 5; m++) {
                     for (int n = 0; n < 5; n++) {
-                        Biome nearBiome = this.biomeManager.getBiomeFromId(this.biomeData[k + m + (j + n) * 10]);
+                        Biome nearBiome = this.biomeManager.getBiomeFromId(this.biomeData[i + m + (j + n) * 10]);
                         float heightBase = this.biomeHeightOffset + nearBiome.getHeight() * this.biomeHeightWeight;
                         float heightScale = this.biomeScaleOffset + nearBiome.getHeightVariation() * this.biomeScaleWeight;
                         
@@ -365,6 +366,9 @@ public class NormalV2 extends Generator {
             populator.populate(this.level, chunkX, chunkZ, this.nukkitRandom, chunk);
         }
         
-        this.biomeManager.getBiomeFromId(chunk.getBiomeId(16, 16)).populateChunk(this.level, chunkX, chunkZ, this.nukkitRandom);
+        FullChunk chunk2 = this.level.getChunk(chunkX, chunkZ);
+        for (Populator populator : populators) {
+            populator.populate(this.level, chunkX, chunkZ, this.nukkitRandom, chunk2);
+        }
     }
 }
