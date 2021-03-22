@@ -8,14 +8,14 @@ import cn.nukkit.level.biome.v2.layer.type.*;
  */
 public class LayerManager implements LayerType {
 
-    private Layer[] layers;
+    private LayerStack layerStack;
     
     public int[] generateBiomeData(int x, int z, int width, int height) {
-        return this.layers[0].generateBiomeData(x, z, width, height, null);
+        return this.layerStack.generateBiomeData(x, z, width, height);
     }
     
     public Layer[] getLayers() {
-        return this.layers;
+        return this.layerStack.getLayers();
     }
     
     public void init() {
@@ -35,13 +35,13 @@ public class LayerManager implements LayerType {
         layer.setParent2(null);
         layer.setScale(0);
         layer.setEdge(0);
-        //layer.setGetMap = getMap;
+        
         //layer.setNoise = null;
         //layer.setData = null;
     }
     
     public void registerVanillaLayers() {
-        LayerStack layerStack = new LayerStack();
+        this.layerStack = new LayerStack();
         layerStack.setLayers(new Layer[LAYER_COUNT]);
         Layer[] layers = layerStack.getLayers();
         
@@ -50,6 +50,6 @@ public class LayerManager implements LayerType {
         this.registerLayer(layers[ISLAND_4096], null, 1);
         this.registerLayer(layers[ZOOM_2048], layers[ISLAND_4096], 2000);
         
-        this.layers = layers;
+        this.layerStack.setLayers(layers);
     }
 }
