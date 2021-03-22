@@ -14,7 +14,8 @@ import lombok.Getter;
 public class Biome {
 
     private final int id;
-    private final float height;
+    private final float baseHeight;
+    private final float heightVariation;
     private final float temperature;
     private final BiomeType type;
     private final BiomeTemperatureType temperatureType;
