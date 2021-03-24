@@ -18,6 +18,6 @@ public class LayerStack {
     private NoiseGeneratorPerlinF oceanRnd;
     
     public int[] generateBiomeData(int x, int z, int width, int height) {
-        return layers[layers.length].generateBiomeData(x, z, width, height);
+        return layers[layers.length].generateBiomeValues(x, z, width, height);
     }
 }
