@@ -18,6 +18,10 @@ public class LayerManager implements LayerType {
         return this.layerStack.getLayers();
     }
     
+    public LayerStack getLayerStack() {
+        return this.layerStack;
+    }
+    
     public void init() {
         this.registerVanillaLayers();
     }
