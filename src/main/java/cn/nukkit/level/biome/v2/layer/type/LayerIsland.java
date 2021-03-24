@@ -12,7 +12,7 @@ public class LayerIsland extends Layer {
     public int[] generateBiomeValues(int x, int z, int width, int height) {
         int[] values;
         if (parent != null) {
-            values = parent.generateBiomeValues(x, z, width, height);
+            values = this.getParent().generateBiomeValues(x, z, width, height);
         } else {
             values = new int[width * height];
         }
