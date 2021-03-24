@@ -10,18 +10,17 @@ public class LayerZoomIsland extends Layer {
 
     @Override
     public int[] generateBiomeValues(int x, int z, int width, int height) {
-        int[] values;
-        if (this.getParent() == null) {
-            values = new int[width * height]; 
-        } else {
-            values = this.getParent().generateBiomeValues(x, z, width, height);
-        }
-        
         int pX = x >> 1;
         int pZ = z >> 1;
         int pW = ((x + width) >> 1) - pX + 1;
         int pH = ((z + height) >> 1) - pZ + 1;
-        int i, j;
+        
+        int[] values;
+        if (this.getParent() == null) {
+            values = new int[width * height]; 
+        } else {
+            values = this.getParent().generateBiomeValues(pX, pZ, pW, pH);
+        }
         
         int newW = (pW) << 1;
         int newH = (pH) << 1;
@@ -31,13 +30,13 @@ public class LayerZoomIsland extends Layer {
         final int st = (int) this.getStartSalt();
         final int ss = (int) this.getStartSeed();
         
-        for (j = 0; j < pH; j++) {
+        for (int j = 0; j < pH; j++) {
             idx = (j << 1) * newW;
             
             v00 = values[(j + 0) * pW];
             v01 = values[(j + 1) * pW];
             
-            for (i = 0; i < pW; i++, v00 = v10, v01 = v11) {
+            for (int i = 0; i < pW; i++, v00 = v10, v01 = v11) {
                 v10 = values[i + 1 + (j + 0) * pW];
                 v11 = values[i + 1 + (j + 1) * pW];
                 
@@ -78,7 +77,7 @@ public class LayerZoomIsland extends Layer {
             }
         }
         
-        for (j = 0; j < height; j++) {
+        for (int j = 0; j < height; j++) {
             System.arraycopy(values, j * width, buf, (j + (z & 1)) * newW + (x & 1), width);
         }
         
