@@ -16,8 +16,7 @@ public class BiomeManager {
     public Biome[] biomes = new Biome[MAX_BIOME_ID];
     
     public Biome getBiomeFromId(int id) {
-        if (id == 0) id = 42; // For backward compatibility (Ocean id changed to 42 from 0)
-        return this.biomes[id];
+        return this.biomes[id == 0 ? 42 : id]; // For backward compatibility (Ocean id changed to 42 from 0
     }
     
     public void init() {
