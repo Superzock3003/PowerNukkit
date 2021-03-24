@@ -11,10 +11,10 @@ public class LayerIsland extends Layer {
     @Override
     public int[] generateBiomeValues(int x, int z, int width, int height) {
         int[] values;
-        if (parent != null) {
-            values = this.getParent().generateBiomeValues(x, z, width, height);
-        } else {
+        if (this.getParent() == null) {
             values = new int[width * height];
+        } else {
+            values = this.getParent().generateBiomeValues(x, z, width, height);
         }
         
         long startSeed = this.getStartSeed();
