@@ -27,9 +27,6 @@ public class LayerAddIsland extends Layer {
         long cs;
         
         for (int j = 0; j < height; j++) {
-            int vt0 = values[i + 1 + (j + 0) * pW];
-            int vt2 = values[i + 1 + (j + 2) * pW];
-            
             int v;
             
             for (int i = 0; i < width; i++) {
@@ -38,6 +35,9 @@ public class LayerAddIsland extends Layer {
                 int v02 = values[i + 0 + (j + 2) * pW];
                 int v22 = values[i + 2 + (j + 2) * pW];
                 int v11 = values[i + 1 + (j + 1) * pW];
+                
+                int vt0 = values[i + 1 + (j + 0) * pW];
+                int vt2 = values[i + 1 + (j + 2) * pW];
                 
                 v = v11;
                 
