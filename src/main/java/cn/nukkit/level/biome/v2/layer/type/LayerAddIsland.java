@@ -21,26 +21,24 @@ public class LayerAddIsland extends Layer {
         int pZ = z - 1;
         int pW = width + 2;
         int pH = height + 2;
-        int i, j;
         
         long st = this.getStartSalt();
         long ss = this.getStartSeed();
         long cs;
         
-        for (j = 0; j < height; j++) {
-            int[] vz0 = values + (j + 0) * pW;
-            int[] vz1 = values + (j + 1) * pW;
-            int[] vz2 = values + (j + 2) * pW;
+        for (int j = 0; j < height; j++) {
+            int vt0 = values[i + 1 + (j + 0) * pW];
+            int vt2 = values[i + 1 + (j + 2) * pW];
             
-            int v00 = vz0[0], vt0 = vz0[1];
-            int v02 = vz2[0], vt2 = vz2[1];
-            int v20, v22;
-            int v11, v;
+            int v;
             
-            for (i = 0; i < width; i++) {
-                v11 = vz1[i + 1];
-                v20 = vz0[i + 2];
-                v22 = vz2[i + 2];
+            for (int i = 0; i < width; i++) {
+                int v00 = values[i + 0 + (j + 0) * pW];
+                int v20 = values[i + 2 + (j + 0) * pW];
+                int v02 = values[i + 0 + (j + 2) * pW];
+                int v22 = values[i + 2 + (j + 2) * pW];
+                int v11 = values[i + 1 + (j + 1) * pW];
+                
                 v = v11;
                 
                 switch (v11) {
@@ -98,6 +96,7 @@ public class LayerAddIsland extends Layer {
                                         if (LayerHelper.mcFirstIsZero(cs, 4)) {
                                             v = v22;
                                         }
+                                        break;
                                 }
                                 cs = LayerHelper.mcStepSeed(cs, st);
                             }
@@ -116,6 +115,7 @@ public class LayerAddIsland extends Layer {
                                 v = 0;
                             }
                         }
+                        break;
                 }
                 
                 values[i + j * width] = v;
