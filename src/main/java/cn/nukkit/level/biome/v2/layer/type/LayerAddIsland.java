@@ -10,17 +10,17 @@ public class LayerAddIsland extends Layer {
 
     @Override
     public int[] generateBiomeValues(int x, int z, int width, int height) {
-        int[] values;
-        if (this.getParent() == null) {
-            values = new int[width * height];
-        } else {
-            values = this.getParent().generateBiomeValues(x, z, width, height);
-        }
-        
         int pX = x - 1;
         int pZ = z - 1;
         int pW = width + 2;
         int pH = height + 2;
+        
+        int[] values;
+        if (this.getParent() == null) {
+            values = new int[width * height];
+        } else {
+            values = this.getParent().generateBiomeValues(pX, pZ, pW, pH);
+        }
         
         long st = this.getStartSalt();
         long ss = this.getStartSeed();
