@@ -16,6 +16,7 @@ public class LayerAddIsland extends Layer {
         int pH = height + 2;
         
         int[] values;
+        int[] parentValues;
         if (this.getParent() == null) {
             values = new int[width * height];
         } else {
@@ -28,14 +29,14 @@ public class LayerAddIsland extends Layer {
         
         for (int j = 0; j < height; j++) {
             for (int i = 0; i < width; i++) {
-                int v00 = values[i + 0 + (j + 0) * pW];
-                int v20 = values[i + 2 + (j + 0) * pW];
-                int v02 = values[i + 0 + (j + 2) * pW];
-                int v22 = values[i + 2 + (j + 2) * pW];
-                int v11 = values[i + 1 + (j + 1) * pW];
+                int v00 = parentValues[i + 0 + (j + 0) * pW];
+                int v20 = parentValues[i + 2 + (j + 0) * pW];
+                int v02 = parentValues[i + 0 + (j + 2) * pW];
+                int v22 = parentValues[i + 2 + (j + 2) * pW];
+                int v11 = parentValues[i + 1 + (j + 1) * pW];
                 
-                int vt0 = values[i + 1 + (j + 0) * pW];
-                int vt2 = values[i + 1 + (j + 2) * pW];
+                int vt0 = parentValues[i + 1 + (j + 0) * pW];
+                int vt2 = parentValues[i + 1 + (j + 2) * pW];
                 
                 int v = v11;
                 
