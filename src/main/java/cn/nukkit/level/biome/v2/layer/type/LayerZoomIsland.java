@@ -9,12 +9,12 @@ import cn.nukkit.level.biome.v2.layer.LayerHelper;
 public class LayerZoomIsland extends Layer {
 
     @Override
-    public int[] generateBiomeValues(int x, int z, int width, int height, int[] parentValues) {
+    public int[] generateBiomeValues(int x, int z, int width, int height) {
         int[] values;
-        if (parentValues == null) {
+        if (this.getParent() == null) {
             values = new int[width * height]; 
         } else {
-            values = parentValues;
+            values = this.getParent().generateBiomeValues(x, z, width, height);
         }
         
         int pX = x >> 1;
