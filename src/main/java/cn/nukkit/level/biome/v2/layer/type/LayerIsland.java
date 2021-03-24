@@ -9,12 +9,12 @@ import cn.nukkit.level.biome.v2.layer.LayerHelper;
 public class LayerIsland extends Layer {
 
     @Override
-    public int[] generateBiomeValues(int x, int z, int width, int height, int[] parentValues) {
+    public int[] generateBiomeValues(int x, int z, int width, int height) {
         int[] values;
-        if (parentValues == null) {
-            values = new int[width * height]; 
+        if (parent != null) {
+            values = parent.generateBiomeValues(x, z, width, height);
         } else {
-            values = parentValues;
+            values = new int[width * height];
         }
         
         long startSeed = this.getStartSeed();
