@@ -12,21 +12,24 @@ public class LayerZoom extends Layer {
 
     @Override
     public int[] generateBiomeValues(int x, int z, int width, int height) {
+        Preconditions.checkNotNull(this.getParent(), "Parent should not be null.");
+        
         int pX = x >> 1;
         int pZ = z >> 1;
         int pW = (x + w >> 1) - pX + 1; // (w >> 1) + 2;
         int pH = (z + h >> 1) - pZ + 1; // (h >> 1) + 2;
-        if (this.getParent() == null) {
-            Preconditions.checkNotNull(this.getParent(), "Parent should not be null.");
-        } else {
-            parentValues = this.getParent().generateBiomeValues(pX, pZ, pW, pH);
-        }
+        
+        int[] parentValues = this.getParent().generateBiomeValues(pX, pZ, pW, pH);
+        
         int newW = pW << 1;
         int newH = pH << 1;
         int idx, v00, v01, v10, v11;
+        
         int[] buf = new int[(newW + 1) * (newH + 1)];
+        
         final int st = this.getStartSalt();
         final int ss = this.getStartSeed();
+        
         for(int j = 0; j < pH; j++) {
             idx = (j << 1) * newW;
             v00 = parentValues[(j + 0) * pW];
