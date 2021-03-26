@@ -16,8 +16,8 @@ public class LayerZoom extends Layer {
         
         int pX = x >> 1;
         int pZ = z >> 1;
-        int pW = (x + w >> 1) - pX + 1; // (w >> 1) + 2;
-        int pH = (z + h >> 1) - pZ + 1; // (h >> 1) + 2;
+        int pW = (x + width >> 1) - pX + 1; // (width >> 1) + 2;
+        int pH = (z + height >> 1) - pZ + 1; // (height >> 1) + 2;
         
         int[] parentValues = this.getParent().generateBiomeValues(pX, pZ, pW, pH);
         
