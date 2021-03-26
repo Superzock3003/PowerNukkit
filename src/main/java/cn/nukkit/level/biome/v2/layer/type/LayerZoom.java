@@ -27,17 +27,17 @@ public class LayerZoom extends Layer {
         
         int[] buf = new int[(newW + 1) * (newH + 1)];
         
-        final int st = this.getStartSalt();
-        final int ss = this.getStartSeed();
+        final int st = (int) this.getStartSalt();
+        final int ss = (int) this.getStartSeed();
         
-        for(int j = 0; j < pH; j++) {
+        for (int j = 0; j < pH; j++) {
             idx = (j << 1) * newW;
             v00 = parentValues[(j + 0) * pW];
             v01 = parentValues[(j + 1) * pW];
-            for(int i = 0; i < pW; i++, v00 = v10, v01 = v11) {
+            for (int i = 0; i < pW; i++, v00 = v10, v01 = v11) {
                 v10 = parentValues[i + 1 + (j + 0) * pW];
                 v11 = parentValues[i + 1 + (j + 1) * pW];
-                if(v00 == v01 && v00 == v10 && v00 == v11) {
+                if (v00 == v01 && v00 == v10 && v00 == v11) {
                     buf[idx] = v00;
                     buf[idx + 1] = v00;
                     buf[idx + newW] = v00;
@@ -67,7 +67,7 @@ public class LayerZoom extends Layer {
         }
         
         int[] values = new int[width * height];
-        for(int j = 0; j < h; j++) {
+        for (int j = 0; j < height; j++) {
             System.arraycopy(buf, (j + (z & 1)) * newW + (x & 1), values, j * width, width);
         }
         
@@ -80,11 +80,11 @@ public class LayerZoom extends Layer {
         int cv10 = (v10 == v01 ? 1 : 0) + (v10 == v11 ? 1 : 0);
         int cv01 = v01 == v11 ? 1 : 0;
         
-        if(cv00 > cv10 && cv00 > cv01) {
+        if (cv00 > cv10 && cv00 > cv01) {
             value = v00;
-        } else if(cv10 > cv00) {
+        } else if (cv10 > cv00) {
             value = v10;
-        } else if(cv01 > cv00) {
+        } else if (cv01 > cv00) {
             value = v01;
         } else {
             cs *= cs * 1284865837 + (int)4150755663L;
