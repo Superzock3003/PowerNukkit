@@ -12,7 +12,7 @@ public class LayerIsland extends Layer {
 
     @Override
     public int[] generateBiomeValues(int x, int z, int width, int height) {
-        Preconditions.checkArgument(this.getParent() != null, "Parent should be null.");
+        Preconditions.checkArgument(this.getParent() == null, "Parent should be null.");
         
         int[] values = new int[width * height];
         
