@@ -30,6 +30,7 @@ public class LayerManager implements LayerType {
         layers[ISLAND_4096] = new LayerIsland();
         layers[ZOOM_2048] = new LayerZoomIsland();
         layers[ADD_ISLAND_2048] = new LayerAddIsland();
+        layers[ZOOM_1024] = new LayerZoom();
     }
     
     public void registerLayer(Layer layer, Layer parent, int salt) {
@@ -47,7 +48,7 @@ public class LayerManager implements LayerType {
     
     public void registerVanillaLayers() {
         this.layerStack = new LayerStack();
-        layerStack.setLayers(new Layer[/*LAYER_COUNT*/3]);
+        layerStack.setLayers(new Layer[/*LAYER_COUNT*/4]);
         Layer[] layers = layerStack.getLayers();
         
         this.initVanillaLayers(layers);
@@ -55,6 +56,7 @@ public class LayerManager implements LayerType {
         this.registerLayer(layers[ISLAND_4096], null, 1);
         this.registerLayer(layers[ZOOM_2048], layers[ISLAND_4096], 2000);
         this.registerLayer(layers[ADD_ISLAND_2048], layers[ZOOM_2048], 1);
+        this.registerLayer(layers[ZOOM_1024], layers[ADD_ISLAND_2048], 2001);
         
         this.layerStack.setLayers(layers);
     }
