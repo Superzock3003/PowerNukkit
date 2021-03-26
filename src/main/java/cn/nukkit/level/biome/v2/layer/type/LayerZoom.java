@@ -28,10 +28,10 @@ public class LayerZoom extends Layer {
                 v10 = out.get(i + 1 + (j + 0) * pW);
                 v11 = out.get(i + 1 + (j + 1) * pW);
                 if(v00 == v01 && v00 == v10 && v00 == v11) {
-                    buf.set(idx, v00);
-                    buf.set(idx + 1, v00);
-                    buf.set(idx + newW, v00);
-                    buf.set(idx + newW + 1, v00);
+                    values[idx] = v00;
+                    values[idx + 1] = v00;
+                    values[idx + newW] = v00;
+                    values[idx + newW + 1] = v00;
                     idx += 2;
                     continue;
                 }
@@ -45,20 +45,20 @@ public class LayerZoom extends Layer {
                 cs += chunkX;
                 cs *= cs * 1284865837 + (int)4150755663L;
                 cs += chunkZ;
-                buf.set(idx, v00);
-                buf.set(idx + newW, (cs >> 24 & 1) != 0 ? v01 : v00);
+                values[idx] = v00;
+                values[idx + newW] = (cs >> 24 & 1) != 0 ? v01 : v00;
                 idx++;
                 cs *= cs * 1284865837 + (int)4150755663L;
                 cs += st;
-                buf.set(idx, (cs >> 24 & 1) != 0 ? v10 : v00);
-                buf.set(idx + newW, 10);
+                values[idx] = (cs >> 24 & 1) != 0 ? v10 : v00;
+                values[idx + newW] = 10;
                 idx++;
             }
         }
         for(int j = 0; j < h; j++) {
             nnc(nnc(out).shift(j * w)).copyFrom(buf.shift((j + (z & 1)) * newW + (x & 1)), w);
         }
-        return 0;
+        return values;
     }
     
     private static int select4(int cs, int st, int v00, int v01, int v10, int v11) {
