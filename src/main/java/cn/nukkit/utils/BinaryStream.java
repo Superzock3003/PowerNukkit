@@ -437,7 +437,11 @@ public class BinaryStream {
         for (int i = 0; i < canDestroy.length; ++i) {
             canDestroy[i] = this.getString();
         }
-
+        
+        if (id == ItemID.SHIELD) {
+            blockingTicks = this.getVarLong();
+        }
+        
         Item item = Item.get(
                 id, data, count, compoundTag, canPlace, canBreak, blockingTicks, blockRuntimeId
         );
@@ -464,10 +468,6 @@ public class BinaryStream {
                 namedTag.put("CanPlaceOn", listTag);
             }
             item.setNamedTag(namedTag);
-        }
-
-        if (item.getId() == 513) { // TODO: Shields
-            this.getVarLong();
         }*/
 
         return item;
