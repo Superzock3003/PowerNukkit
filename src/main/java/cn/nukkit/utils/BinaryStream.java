@@ -388,16 +388,22 @@ public class BinaryStream {
         String[] canPlace;
         String[] canBreak;
         
-        /*int auxValue = this.getVarInt();
-        int data = auxValue >> 8;
-        if (hasData) {
-            // Swap data using legacy full id
-            data = RuntimeItems.getData(legacyFullId);
-        } else if (data == Short.MAX_VALUE) {
-            data = -1;
+        try {
+            FastByteArrayInputStream stream = new FastByteArrayInputStream(get());
+            int nbtSize = this.getVarShort();
+            if (nbtSize > 0) {
+                compoundTag = (NbtMap) nbtStream.readTag();
+            } else if (nbtSize == -1) {
+                int tagCount = stream.readUnsignedByte();
+                if (tagCount != 1) {
+                    throw new IllegalArgumentException("Expected 1 tag but got " + tagCount);
+                }
+                compoundTag = (CompoundTag) nbtStream.readTag();
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
         }
-        int cnt = auxValue & 0xff;*/
-
+        
         int nbtLen = this.getLShort();
         byte[] nbt = EmptyArrays.EMPTY_BYTES;
         if (nbtLen < Short.MAX_VALUE) {
