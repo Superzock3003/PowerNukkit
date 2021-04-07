@@ -376,12 +376,19 @@ public class BinaryStream {
         if (networkId == 0) {
             return Item.get(0, 0, 0);
         }
-
+        int count = this.getUnsignedLShort();
+        int damage = this.getUnsignedVarInt();
+        int blockRuntimeId = this.getVarInt();
+        
         int legacyFullId = RuntimeItems.getRuntimeMapping().getLegacyFullId(networkId);
         int id = RuntimeItems.getId(legacyFullId);
         boolean hasData = RuntimeItems.hasData(legacyFullId);
-
-        int auxValue = this.getVarInt();
+        CompoundTag compoundTag = null;
+        long blockingTicks = 0;
+        String[] canPlace;
+        String[] canBreak;
+        
+        /*int auxValue = this.getVarInt();
         int data = auxValue >> 8;
         if (hasData) {
             // Swap data using legacy full id
@@ -389,7 +396,7 @@ public class BinaryStream {
         } else if (data == Short.MAX_VALUE) {
             data = -1;
         }
-        int cnt = auxValue & 0xff;
+        int cnt = auxValue & 0xff;*/
 
         int nbtLen = this.getLShort();
         byte[] nbt = EmptyArrays.EMPTY_BYTES;
@@ -421,21 +428,21 @@ public class BinaryStream {
             setOffset(offset + (int) stream.position());
         }
 
-        String[] canPlaceOn = new String[this.getVarInt()];
+        canPlaceOn = new String[this.getVarInt()];
         for (int i = 0; i < canPlaceOn.length; ++i) {
             canPlaceOn[i] = this.getString();
         }
 
-        String[] canDestroy = new String[this.getVarInt()];
+        canDestroy = new String[this.getVarInt()];
         for (int i = 0; i < canDestroy.length; ++i) {
             canDestroy[i] = this.getString();
         }
 
         Item item = Item.get(
-                id, data, cnt, nbt
+                id, data, count, compoundTag, canPlace, canBreak, blockingTicks, blockRuntimeId
         );
 
-        if (canDestroy.length > 0 || canPlaceOn.length > 0) {
+        /*if (canDestroy.length > 0 || canPlaceOn.length > 0) {
             CompoundTag namedTag = item.getNamedTag();
             if (namedTag == null) {
                 namedTag = new CompoundTag();
@@ -461,7 +468,7 @@ public class BinaryStream {
 
         if (item.getId() == 513) { // TODO: Shields
             this.getVarLong();
-        }
+        }*/
 
         return item;
     }
