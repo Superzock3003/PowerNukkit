@@ -26,9 +26,8 @@ public class CreativeContentPacket extends DataPacket {
         this.reset();
         this.putUnsignedVarInt(entries.length);
         for (int i = 0; i < entries.length; i++) {
-            this.putUnsignedVarInt(i + 1);
-            this.putSlot(entries[i]);
+            this.putVarInt(i + 1);
+            this.putSlotInstance(entries[i]);
         }
-
     }
 }

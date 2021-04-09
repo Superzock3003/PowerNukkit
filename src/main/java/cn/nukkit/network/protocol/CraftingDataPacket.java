@@ -27,8 +27,8 @@ public class CraftingDataPacket extends DataPacket {
     public static final String CRAFTING_TAG_SMOKER = "smoker";
 
     private List<Recipe> entries = new ArrayList<>();
-    private List<BrewingRecipe> brewingEntries = new ArrayList<>();
-    private List<ContainerRecipe> containerEntries = new ArrayList<>();
+    private final List<BrewingRecipe> brewingEntries = new ArrayList<>();
+    private final List<ContainerRecipe> containerEntries = new ArrayList<>();
     public boolean cleanRecipes;
 
     public void addShapelessRecipe(ShapelessRecipe... recipe) {
@@ -103,7 +103,7 @@ public class CraftingDataPacket extends DataPacket {
                     this.putUnsignedVarInt(1);
                     this.putRecipeIngredient(stonecutter.getIngredient());
                     this.putUnsignedVarInt(1);
-                    this.putSlot(stonecutter.getResult());
+                    this.putSlotInstance(stonecutter.getResult());
                     this.putUUID(stonecutter.getId());
                     this.putString(CRAFTING_TAG_STONECUTTER);
                     this.putVarInt(stonecutter.getPriority());
@@ -119,7 +119,7 @@ public class CraftingDataPacket extends DataPacket {
                         this.putRecipeIngredient(ingredient);
                     }
                     this.putUnsignedVarInt(1);
-                    this.putSlot(shapeless.getResult());
+                    this.putSlotInstance(shapeless.getResult());
                     this.putUUID(shapeless.getId());
                     this.putString(recipe.getType() == RecipeType.CARTOGRAPHY ? CRAFTING_TAG_CARTOGRAPHY_TABLE : CRAFTING_TAG_CRAFTING_TABLE);
                     this.putVarInt(shapeless.getPriority());
@@ -141,7 +141,7 @@ public class CraftingDataPacket extends DataPacket {
                     outputs.addAll(shaped.getExtraResults());
                     this.putUnsignedVarInt(outputs.size());
                     for (Item output : outputs) {
-                        this.putSlot(output);
+                        this.putSlotInstance(output);
                     }
                     this.putUUID(shaped.getId());
                     this.putString(CRAFTING_TAG_CRAFTING_TABLE);
@@ -162,7 +162,7 @@ public class CraftingDataPacket extends DataPacket {
                     if (recipe.getType().name().endsWith("_DATA")) {
                         this.putVarInt(input.getDamage());
                     }
-                    this.putSlot(smelting.getResult());
+                    this.putSlotInstance(smelting.getResult());
                     switch (recipe.getType()) {
                         case FURNACE:
                         case FURNACE_DATA:
