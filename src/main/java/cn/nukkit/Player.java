@@ -4210,7 +4210,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
 
             super.close();
 
-          //  this.interfaz.close(this, notify ? reason : "");
+           // this.interfaz.close(this, notify ? reason : "");
 
             if (this.loggedIn) {
                 this.server.removeOnlinePlayer(this);
