@@ -57,7 +57,7 @@ public class BlockWoodBark extends BlockWood {
 
     @Override
     public String getName() {
-        return (isStripped()? "Stripped ": "") + super.getName();
+        return (isStripped()? "Stripped ": "") + getWoodType().getEnglishName() + " Wood";
     }
 
     @Override
