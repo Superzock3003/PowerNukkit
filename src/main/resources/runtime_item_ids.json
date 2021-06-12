@@ -4085,6 +4085,12 @@
     "oldData": 127
   },
   {
+    "name": "minecraft:goat_spawn_egg",
+    "id": 501,
+    "oldId": 383,
+    "oldData": 128
+  },
+  {
     "name": "minecraft:experience_bottle",
     "id": 508,
     "oldId": 384
