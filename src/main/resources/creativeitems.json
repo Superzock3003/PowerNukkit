@@ -2656,7 +2656,8 @@
       "damage": 127
     },
     {
-      "id" : "minecraft:goat_spawn_egg"
+      "id" : "minecraft:goat_spawn_egg",
+      "damage": 128
     },
     {
       "id" : "minecraft:axolotl_spawn_egg"

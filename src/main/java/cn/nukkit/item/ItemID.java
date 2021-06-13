@@ -289,6 +289,10 @@ public interface ItemID {
 
     @Since("1.4.0.0-PN") @PowerNukkitOnly int SOUL_CAMPFIRE = 801;
 
+    @Since("1.4.0.0-PN") @PowerNukkitOnly int RAW_COPPER = 930;
+    @Since("1.4.0.0-PN") @PowerNukkitOnly int COPPER_INGOT = 931;
+    @Since("1.4.0.0-PN") @PowerNukkitOnly int SPY_GLASS = 932;
+
     //@PowerNukkitOnly int DEBUG_STICK = <Possible:> 802+;
     
 }

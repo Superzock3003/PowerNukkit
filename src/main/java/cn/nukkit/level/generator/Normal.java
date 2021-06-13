@@ -200,6 +200,7 @@ public class Normal extends Generator {
                         new OreType(Block.get(BlockID.LAPIS_ORE), 1, 7, 0, 16),
                         new OreType(Block.get(BlockID.GOLD_ORE), 2, 9, 0, 32),
                         new OreType(Block.get(BlockID.DIAMOND_ORE), 1, 8, 0, 16),
+                        new OreType(Block.get(BlockID.COPPER_ORE), 6, 16, 0, 96),
                         new OreType(Block.get(BlockID.DIRT), 10, 33, 0, 128),
                         new OreType(Block.get(BlockID.GRAVEL), 8, 33, 0, 128),
                         new OreType(Block.get(BlockID.STONE, BlockStone.GRANITE), 10, 33, 0, 80),

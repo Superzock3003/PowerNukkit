@@ -519,5 +519,33 @@ public interface BlockID {
     @Since("1.4.0.0-PN") @PowerNukkitOnly int CHISELED_NETHER_BRICKS = 557;
     @Since("1.4.0.0-PN") @PowerNukkitOnly int CRACKED_NETHER_BRICKS = 558;
     @Since("1.4.0.0-PN") @PowerNukkitOnly int QUARTZ_BRICKS = 559;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int COPPER_ORE = 566;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int COPPER_BLOCK = 595;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int EXPOSED_COPPER = 596;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int WEATHERED_COPPER = 597;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int OXIDIZED_COPPER = 598;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int CUT_COPPER = 602;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int EXPOSED_CUT_COPPER = 603;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int WEATHERED_CUT_COPPER = 604;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int OXIDIZED_CUT_COPPER = 605;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int CUT_COPPER_STAIRS = 609;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int EXPOSED_CUT_COPPER_STAIRS = 610;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int WEATHERED_CUT_COPPER_STAIRS = 611;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int OXIDIZED_CUT_COPPER_STAIRS = 612;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int CUT_COPPER_SLAB = 616;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int EXPOSED_CUT_COPPER_SLAB = 617;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int WEATHERED_CUT_COPPER_SLAB = 618;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int OXIDIZED_CUT_COPPER_SLAB = 619;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int DOUBLE_CUT_COPPER_SLAB = 623;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int EXPOSED_DOUBLE_CUT_COPPER_SLAB = 624;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int WEATHERED_DOUBLE_CUT_COPPER_SLAB = 625;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int OXIDIZED_DOUBLE_CUT_COPPER_SLAB = 626;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int RAW_COPPER_BLOCK = 707;
     //int UNKNOWN = 600;
 }

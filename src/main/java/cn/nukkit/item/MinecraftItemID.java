@@ -953,7 +953,34 @@ public enum MinecraftItemID {
     @PowerNukkitOnly @Since("1.4.0.0-PN") WATER_BUCKET,
     @PowerNukkitOnly @Since("1.4.0.0-PN") LIGHT_GRAY_DYE,
     @PowerNukkitOnly @Since("1.4.0.0-PN") CHARCOAL,
-    @PowerNukkitOnly @Since("1.4.0.0-PN") AGENT_SPAWN_EGG(false, false, true)
+    @PowerNukkitOnly @Since("1.4.0.0-PN") AGENT_SPAWN_EGG(false, false, true),
+    @PowerNukkitOnly @Since("1.4.0.0-PN") GOAT_SPAWN_EGG,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") AXOLOTL_SPAWN_EGG,
+
+    @PowerNukkitOnly @Since("1.4.0.0-PN") SPY_GLASS,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") COPPER_ORE,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") RAW_COPPER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") COPPER_BLOCK,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") EXPOSED_COPPER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") WEATHERED_COPPER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") OXIDIZED_COPPER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") CUT_COPPER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") EXPOSED_CUT_COPPER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") WEATHERED_CUT_COPPER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") OXIDIZED_CUT_COPPER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") CUT_COPPER_STAIRS,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") EXPOSED_CUT_COPPER_STAIRS,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") WEATHERED_CUT_COPPER_STAIRS,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") OXIDIZED_CUT_COPPER_STAIRS,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") CUT_COPPER_SLAB,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") EXPOSED_CUT_COPPER_SLAB,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") WEATHERED_CUT_COPPER_SLAB,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") OXIDIZED_CUT_COPPER_SLAB,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") DOUBLE_CUT_COPPER_SLAB,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") EXPOSED_DOUBLE_CUT_COPPER_SLAB,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") WEATHERED_DOUBLE_CUT_COPPER_SLAB,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") OXIDIZED_DOUBLE_CUT_COPPER_SLAB,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") RAW_COPPER_BLOCK
     ;
     private static final Map<String, MinecraftItemID> namespacedIdMap = Arrays.stream(values())
             .flatMap(id-> 

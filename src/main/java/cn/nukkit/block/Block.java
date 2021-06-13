@@ -59,7 +59,7 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
     @Deprecated
     @DeprecationDetails(since = "1.4.0.0-PN", reason = "It is being replaced by an other solution that don't require a fixed size")
     @PowerNukkitOnly
-    public static final int MAX_BLOCK_ID = dynamic(600);
+    public static final int MAX_BLOCK_ID = dynamic(751);
     
     @Deprecated
     @DeprecationDetails(since = "1.4.0.0-PN", reason = "It's not a constant value, it may be changed on major updates and" +
@@ -603,7 +603,36 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[CHISELED_NETHER_BRICKS] = BlockBricksNetherChiseled.class; //557
             list[CRACKED_NETHER_BRICKS] = BlockBricksNetherCracked.class; //558
             list[QUARTZ_BRICKS] = BlockBricksQuartz.class; //559
+
+            list[COPPER_ORE] = BlockOreCopper.class; // 566
+
+            list[COPPER_BLOCK] = BlockCopper.class; // 595
+            list[EXPOSED_COPPER] = BlockExposedCopper.class; // 596
+            list[WEATHERED_COPPER] = BlockWeatheredCopper.class; // 597
+            list[OXIDIZED_COPPER] = BlockOxidizedCopper.class; // 598
+
+            list[CUT_COPPER] = BlockCutCopper.class; // 602
+            list[EXPOSED_CUT_COPPER] = BlockExposedCutCopper.class; // 603
+            list[WEATHERED_CUT_COPPER] = BlockWeatheredCutCopper.class; // 604
+            list[OXIDIZED_CUT_COPPER] = BlockOxidizedCutCopper.class; // 605
+
+            list[CUT_COPPER_STAIRS] = BlockCutCopperStairs.class; // 609
+            list[EXPOSED_CUT_COPPER_STAIRS] = BlockExposedCutCopperStairs.class; // 610
+            list[WEATHERED_CUT_COPPER_STAIRS] = BlockWeatheredCutCopperStairs.class; // 611
+            list[OXIDIZED_CUT_COPPER_STAIRS] = BlockOxidizedCutCopperStairs.class; // 612
+
+            list[CUT_COPPER_SLAB] = BlockCutCopperSlab.class; // 616
+            list[EXPOSED_CUT_COPPER_SLAB] = BlockExposedCutCopperSlab.class; // 617
+            list[WEATHERED_CUT_COPPER_SLAB] = BlockWeatheredCutCopperSlab.class; // 618
+            list[OXIDIZED_CUT_COPPER_SLAB] = BlockOxidizedCutCopperSlab.class; // 619
+
+            list[DOUBLE_CUT_COPPER_SLAB] = BlockDoubleCutCopperSlab.class; // 623
+            list[EXPOSED_DOUBLE_CUT_COPPER_SLAB] = BlockExposedDoubleCutCopperSlab.class; // 624
+            list[WEATHERED_DOUBLE_CUT_COPPER_SLAB] = BlockWeatheredDoubleCutCopperSlab.class; // 625
+            list[OXIDIZED_DOUBLE_CUT_COPPER_SLAB] = BlockOxidizedDoubleCutCopperSlab.class; // 626
             
+            list[RAW_COPPER_BLOCK] = BlockRawCopper.class; // 707
+
             initializing = true;
             
             for (int id = 0; id < MAX_BLOCK_ID; id++) {

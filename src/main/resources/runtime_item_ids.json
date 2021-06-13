@@ -1,5 +1,115 @@
 [
   {
+    "name": "minecraft:raw_copper_block",
+    "id": -452,
+    "oldId": -452
+  },
+  {
+    "name": "minecraft:double_cut_copper_slab",
+    "id": -368,
+    "oldId": -368
+  },
+  {
+    "name": "minecraft:exposed_double_cut_copper_slab",
+    "id": -369,
+    "oldId": -369
+  },
+  {
+    "name": "minecraft:weathered_double_cut_copper_slab",
+    "id": -370,
+    "oldId": -370
+  },
+  {
+    "name": "minecraft:oxidized_double_cut_copper_slab",
+    "id": -371,
+    "oldId": -371
+  },
+  {
+    "name": "minecraft:cut_copper_slab",
+    "id": -361,
+    "oldId": -361
+  },
+  {
+    "name": "minecraft:exposed_cut_copper_slab",
+    "id": -362,
+    "oldId": -362
+  },
+  {
+    "name": "minecraft:weathered_cut_copper_slab",
+    "id": -363,
+    "oldId": -363
+  },
+  {
+    "name": "minecraft:oxidized_cut_copper_slab",
+    "id": -364,
+    "oldId": -364
+  },
+  {
+    "name": "minecraft:cut_copper_stairs",
+    "id": -354,
+    "oldId": -354
+  },
+  {
+    "name": "minecraft:exposed_cut_copper_stairs",
+    "id": -355,
+    "oldId": -355
+  },
+  {
+    "name": "minecraft:weathered_cut_copper_stairs",
+    "id": -356,
+    "oldId": -356
+  },
+  {
+    "name": "minecraft:oxidized_cut_copper_stairs",
+    "id": -357,
+    "oldId": -357
+  },
+  {
+    "name": "minecraft:copper_block",
+    "id": -340,
+    "oldId": -340
+  },
+  {
+    "name": "minecraft:exposed_copper",
+    "id": -341,
+    "oldId": -341
+  },
+  {
+    "name": "minecraft:weathered_copper",
+    "id": -342,
+    "oldId": -342
+  },
+  {
+    "name": "minecraft:oxidized_copper",
+    "id": -343,
+    "oldId": -343
+  },
+  {
+    "name": "minecraft:cut_copper",
+    "id": -347,
+    "oldId": -347
+  },
+  {
+    "name": "minecraft:exposed_cut_copper",
+    "id": -348,
+    "oldId": -348
+  },
+  {
+    "name": "minecraft:weathered_cut_copper",
+    "id": -349,
+    "oldId": -349
+  },
+  {
+    "name": "minecraft:oxidized_cut_copper",
+    "id": -350,
+    "oldId": -350
+  },
+  {
+    "name": "minecraft:copper_ore",
+    "id": -311,
+    "oldId": -311
+  },
+  {
     "name": "minecraft:unknown",
     "id": -305
   },
@@ -4091,6 +4201,22 @@
     "oldData": 128
   },
   {
+    "name": "minecraft:axolotl_spawn_egg",
+    "id": 502,
+    "oldId": 383,
+    "oldData": 130
+  },
+  {
+    "name": "minecraft:copper_ingot",
+    "id": 504,
+    "oldId": 931
+  },
+  {
+    "name": "minecraft:raw_copper",
+    "id": 507,
+    "oldId": 930
+  },
+  {
     "name": "minecraft:experience_bottle",
     "id": 508,
     "oldId": 384
@@ -4661,6 +4787,11 @@
     "name": "minecraft:soul_campfire",
     "id": 620,
     "oldId": 801
+  },
+  {
+    "name": "minecraft:spyglass",
+    "id": 624,
+    "oldId": 932
   },
   {
     "name": "minecraft:boat",

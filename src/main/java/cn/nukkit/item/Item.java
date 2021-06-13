@@ -415,6 +415,10 @@ public class Item implements Cloneable, BlockID, ItemID {
 
             list[SOUL_CAMPFIRE] = ItemCampfireSoul.class; //801
 
+            list[RAW_COPPER] = ItemRawCopper.class; // 930
+            list[COPPER_INGOT] = ItemCopperIngot.class; // 931
+            list[SPY_GLASS] = ItemSpyGlass.class; // 932
+
             for (int i = 0; i < 256; ++i) {
                 if (Block.list[i] != null) {
                     list[i] = Block.list[i];
