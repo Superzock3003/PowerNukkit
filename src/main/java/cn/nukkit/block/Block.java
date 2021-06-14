@@ -606,6 +606,14 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
 
             list[COPPER_ORE] = BlockOreCopper.class; // 566
 
+            list[MOSS] = BlockMoss.class; // 575
+
+            list[BIG_DRIPLEAF] = BlockDripLeaf.class; // 578
+
+            list[AMETHYST_CLUSTER] = BlockAmethystCluster.class; // 584
+
+            list[MOSS_CARPET] = BlockMossCarpet.class; // 590
+
             list[COPPER_BLOCK] = BlockCopper.class; // 595
             list[EXPOSED_COPPER] = BlockExposedCopper.class; // 596
             list[WEATHERED_COPPER] = BlockWeatheredCopper.class; // 597
@@ -630,8 +638,10 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[EXPOSED_DOUBLE_CUT_COPPER_SLAB] = BlockExposedDoubleCutCopperSlab.class; // 624
             list[WEATHERED_DOUBLE_CUT_COPPER_SLAB] = BlockWeatheredDoubleCutCopperSlab.class; // 625
             list[OXIDIZED_DOUBLE_CUT_COPPER_SLAB] = BlockOxidizedDoubleCutCopperSlab.class; // 626
-            
+
+            list[RAW_IRON_BLOCK] = BlockRawIron.class; // 706
             list[RAW_COPPER_BLOCK] = BlockRawCopper.class; // 707
+            list[RAW_GOLD_BLOCK] = BlockRawGold.class; // 708
 
             initializing = true;
             

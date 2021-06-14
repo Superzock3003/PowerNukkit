@@ -1,8 +1,18 @@
 [
   {
+    "name": "minecraft:raw_gold_block",
+    "id": -453,
+    "oldId": -453
+  },
+  {
     "name": "minecraft:raw_copper_block",
     "id": -452,
     "oldId": -452
+  },
+  {
+    "name": "minecraft:raw_iron_block",
+    "id": -451,
+    "oldId": -451
   },
   {
     "name": "minecraft:double_cut_copper_slab",
@@ -103,6 +113,26 @@
     "name": "minecraft:oxidized_cut_copper",
     "id": -350,
     "oldId": -350
+  },
+  {
+    "name": "minecraft:moss_carpet",
+    "id": -335,
+    "oldId": -335
+  },
+  {
+    "name": "minecraft:amethyst_cluster",
+    "id": -329,
+    "oldId": -329
+  },
+  {
+    "name": "minecraft:big_dripleaf",
+    "id": -323,
+    "oldId": -323
+  },
+  {
+    "name": "minecraft:moss_block",
+    "id": -320,
+    "oldId": -320
   },
   {
     "name": "minecraft:copper_ore",
@@ -4212,6 +4242,16 @@
     "oldId": 931
   },
   {
+    "name": "minecraft:raw_iron",
+    "id": 505,
+    "oldId": 933
+  },
+  {
+    "name": "minecraft:raw_gold",
+    "id": 506,
+    "oldId": 934
+  },
+  {
     "name": "minecraft:raw_copper",
     "id": 507,
     "oldId": 930
@@ -4787,6 +4827,11 @@
     "name": "minecraft:soul_campfire",
     "id": 620,
     "oldId": 801
+  },
+  {
+    "name": "minecraft:amethyst_shard",
+    "id": 623,
+    "oldId": 935
   },
   {
     "name": "minecraft:spyglass",

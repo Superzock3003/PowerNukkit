@@ -148,7 +148,7 @@ public enum PNAlphaItemID {
     @Since("1.4.0.0-PN") @PowerNukkitOnly CHARCOAL(907, MinecraftItemID.CHARCOAL),
     @Since("1.4.0.0-PN") @PowerNukkitOnly AGENT_SPAWN_EGG(908, MinecraftItemID.AGENT_SPAWN_EGG),
     @Since("1.4.0.0-PN") @PowerNukkitOnly GOAT_SPAWN_EGG(909, MinecraftItemID.GOAT_SPAWN_EGG),
-    @Since("1.4.0.0-PN") @PowerNukkitOnly AXOLOLT_SPAWN_EGG(910, MinecraftItemID.AXOLOTL_SPAWN_EGG),
+    @Since("1.4.0.0-PN") @PowerNukkitOnly AXOLOLT_SPAWN_EGG(910, MinecraftItemID.AXOLOTL_SPAWN_EGG)
     ;
     private final int badItemId;
     private final MinecraftItemID minecraftItemId;

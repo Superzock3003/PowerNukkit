@@ -521,6 +521,15 @@ public interface BlockID {
     @Since("1.4.0.0-PN") @PowerNukkitOnly int QUARTZ_BRICKS = 559;
 
     @Since("1.5.0.0-PN") @PowerNukkitOnly int COPPER_ORE = 566;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int MOSS = 575;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int BIG_DRIPLEAF = 578;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int AMETHYST_CLUSTER = 584;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int MOSS_CARPET = 590;
+
     @Since("1.5.0.0-PN") @PowerNukkitOnly int COPPER_BLOCK = 595;
     @Since("1.5.0.0-PN") @PowerNukkitOnly int EXPOSED_COPPER = 596;
     @Since("1.5.0.0-PN") @PowerNukkitOnly int WEATHERED_COPPER = 597;
@@ -546,6 +555,8 @@ public interface BlockID {
     @Since("1.5.0.0-PN") @PowerNukkitOnly int WEATHERED_DOUBLE_CUT_COPPER_SLAB = 625;
     @Since("1.5.0.0-PN") @PowerNukkitOnly int OXIDIZED_DOUBLE_CUT_COPPER_SLAB = 626;
 
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int RAW_IRON_BLOCK = 706;
     @Since("1.5.0.0-PN") @PowerNukkitOnly int RAW_COPPER_BLOCK = 707;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int RAW_GOLD_BLOCK = 708;
     //int UNKNOWN = 600;
 }

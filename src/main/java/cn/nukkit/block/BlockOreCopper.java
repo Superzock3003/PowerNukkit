@@ -36,16 +36,12 @@ public class BlockOreCopper extends BlockOre {
     @Override
     public Item[] getDrops(Item item) {
         if (item.isPickaxe() && item.getTier() >= getToolTier()) {
-            int count = 1;
+            int count = ThreadLocalRandom.current().nextInt(2) + 2;
             Enchantment fortune = item.getEnchantment(Enchantment.ID_FORTUNE_DIGGING);
             if (fortune != null && fortune.getLevel() >= 1) {
-                int i = ThreadLocalRandom.current().nextInt(fortune.getLevel() * 4) - 1;
+                int i = ThreadLocalRandom.current().nextInt(fortune.getLevel() + 1) * (ThreadLocalRandom.current().nextInt(2) + 2);
 
-                if (i < 0) {
-                    i = 0;
-                }
-
-                count = i + 1;
+                count += i;
             }
 
             return new Item[]{

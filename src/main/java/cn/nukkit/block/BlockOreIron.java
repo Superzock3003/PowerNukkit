@@ -1,7 +1,11 @@
 package cn.nukkit.block;
 
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemRawIron;
 import cn.nukkit.item.ItemTool;
+import cn.nukkit.item.enchantment.Enchantment;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author MagicDroidX (Nukkit Project)
@@ -45,5 +49,23 @@ public class BlockOreIron extends BlockOre {
     @Override
     public boolean canHarvestWithHand() {
         return false;
+    }
+
+    @Override
+    public boolean canSilkTouch() {
+        return true;
+    }
+
+    @Override
+    public Item[] getDrops(Item item) {
+        if(item.isPickaxe() && item.getTier() >= getToolTier()) {
+            int count = 1;
+            Enchantment fortune = item.getEnchantment(Enchantment.ID_FORTUNE_DIGGING);
+            if(fortune != null && fortune.getLevel() >= 1) {
+                count += ThreadLocalRandom.current().nextInt(fortune.getLevel() + 1);
+            }
+            return new Item[] {new ItemRawIron(0, count)};
+        }
+        return Item.EMPTY_ARRAY;
     }
 }

@@ -292,6 +292,9 @@ public interface ItemID {
     @Since("1.4.0.0-PN") @PowerNukkitOnly int RAW_COPPER = 930;
     @Since("1.4.0.0-PN") @PowerNukkitOnly int COPPER_INGOT = 931;
     @Since("1.4.0.0-PN") @PowerNukkitOnly int SPY_GLASS = 932;
+    @Since("1.4.0.0-PN") @PowerNukkitOnly int RAW_IRON = 933;
+    @Since("1.4.0.0-PN") @PowerNukkitOnly int RAW_GOLD = 934;
+    @Since("1.4.0.0-PN") @PowerNukkitOnly int AMETHYST_SHARD = 935;
 
     //@PowerNukkitOnly int DEBUG_STICK = <Possible:> 802+;
     

@@ -980,7 +980,16 @@ public enum MinecraftItemID {
     @PowerNukkitOnly @Since("1.4.0.0-PN") EXPOSED_DOUBLE_CUT_COPPER_SLAB,
     @PowerNukkitOnly @Since("1.4.0.0-PN") WEATHERED_DOUBLE_CUT_COPPER_SLAB,
     @PowerNukkitOnly @Since("1.4.0.0-PN") OXIDIZED_DOUBLE_CUT_COPPER_SLAB,
-    @PowerNukkitOnly @Since("1.4.0.0-PN") RAW_COPPER_BLOCK
+    @PowerNukkitOnly @Since("1.4.0.0-PN") RAW_COPPER_BLOCK,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") RAW_IRON,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") RAW_GOLD,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") RAW_IRON_BLOCK,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") RAW_GOLD_BLOCK,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") AMETHYST_SHARD,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") AMETHYST_CLUSTER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") BIG_DRIPLEAF,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") MOSS_BLOCK,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") MOSS_CARPET
     ;
     private static final Map<String, MinecraftItemID> namespacedIdMap = Arrays.stream(values())
             .flatMap(id-> 
