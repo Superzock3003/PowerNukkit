@@ -1516,7 +1516,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
             block.getLevelBlockAtLayer(1).onEntityCollide(this);
         }
 
-        setDataFlag(DATA_FLAGS_EXTENDED, DATA_FLAG_IN_SCAFFOLDING, false);
+        setDataFlag(DATA_FLAGS_EXTENDED, DATA_FLAG_IN_SCAFFOLDING, scaffolding);
 
         AxisAlignedBB scanBoundingBox = boundingBox.getOffsetBoundingBox(0, -0.125, 0);
         scanBoundingBox.setMaxY(boundingBox.getMinY());
@@ -1525,7 +1525,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                 true, true,
                 b-> b.getId() == BlockID.SCAFFOLDING
         );
-        setDataFlag(DATA_FLAGS_EXTENDED, DATA_FLAG_OVER_SCAFFOLDING, false);
+        setDataFlag(DATA_FLAGS_EXTENDED, DATA_FLAG_OVER_SCAFFOLDING, scaffoldingUnder.length > 0);
 
         if (endPortal) {
             if (!inEndPortal) {

@@ -604,17 +604,24 @@ public abstract class Block extends Position implements Metadatable, Cloneable, 
             list[CRACKED_NETHER_BRICKS] = BlockBricksNetherCracked.class; //558
             list[QUARTZ_BRICKS] = BlockBricksQuartz.class; //559
 
+            list[POINTED_DRIPSTONE] = BlockPointedDripstone.class; // 563
+
             list[COPPER_ORE] = BlockOreCopper.class; // 566
 
+            list[DRIPSTONE_BLOCK] = BlockDripStoneBlock.class; // 572
             list[MOSS] = BlockMoss.class; // 575
 
             list[BIG_DRIPLEAF] = BlockDripLeaf.class; // 578
+            list[AZALEA_LEAVES] = BlockLeavesAzalea.class; // 579
+            list[AZALEA_LEAVES_FLOWERED] = BlockLeavesAzaleaFlowered.class; // 580
 
+            list[AMETHYST_BLOCK] = BlockAmethyst.class; // 582
+            list[BUDDING_AMETHYST] = BlockBuddingAmethyst.class; // 583
             list[AMETHYST_CLUSTER] = BlockAmethystCluster.class; // 584
 
             list[MOSS_CARPET] = BlockMossCarpet.class; // 590
 
-            list[COPPER_BLOCK] = BlockCopper.class; // 595
+            list[COPPER_BLOCK] = BlockCopperBlock.class; // 595
             list[EXPOSED_COPPER] = BlockExposedCopper.class; // 596
             list[WEATHERED_COPPER] = BlockWeatheredCopper.class; // 597
             list[OXIDIZED_COPPER] = BlockOxidizedCopper.class; // 598

@@ -520,12 +520,20 @@ public interface BlockID {
     @Since("1.4.0.0-PN") @PowerNukkitOnly int CRACKED_NETHER_BRICKS = 558;
     @Since("1.4.0.0-PN") @PowerNukkitOnly int QUARTZ_BRICKS = 559;
 
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int POINTED_DRIPSTONE = 563;
+
     @Since("1.5.0.0-PN") @PowerNukkitOnly int COPPER_ORE = 566;
+
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int DRIPSTONE_BLOCK = 572;
 
     @Since("1.5.0.0-PN") @PowerNukkitOnly int MOSS = 575;
 
     @Since("1.5.0.0-PN") @PowerNukkitOnly int BIG_DRIPLEAF = 578;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int AZALEA_LEAVES = 579;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int AZALEA_LEAVES_FLOWERED = 580;
 
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int AMETHYST_BLOCK = 582;
+    @Since("1.5.0.0-PN") @PowerNukkitOnly int BUDDING_AMETHYST = 583;
     @Since("1.5.0.0-PN") @PowerNukkitOnly int AMETHYST_CLUSTER = 584;
 
     @Since("1.5.0.0-PN") @PowerNukkitOnly int MOSS_CARPET = 590;

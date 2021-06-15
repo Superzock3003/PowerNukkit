@@ -295,6 +295,7 @@ public interface ItemID {
     @Since("1.4.0.0-PN") @PowerNukkitOnly int RAW_IRON = 933;
     @Since("1.4.0.0-PN") @PowerNukkitOnly int RAW_GOLD = 934;
     @Since("1.4.0.0-PN") @PowerNukkitOnly int AMETHYST_SHARD = 935;
+    @Since("1.4.0.0-PN") @PowerNukkitOnly int GLOW_INK_SAC = 936;
 
     //@PowerNukkitOnly int DEBUG_STICK = <Possible:> 802+;
     

@@ -955,11 +955,13 @@ public enum MinecraftItemID {
     @PowerNukkitOnly @Since("1.4.0.0-PN") CHARCOAL,
     @PowerNukkitOnly @Since("1.4.0.0-PN") AGENT_SPAWN_EGG(false, false, true),
     @PowerNukkitOnly @Since("1.4.0.0-PN") GOAT_SPAWN_EGG,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") GLOW_SQUID_SPAWN_EGG,
     @PowerNukkitOnly @Since("1.4.0.0-PN") AXOLOTL_SPAWN_EGG,
 
-    @PowerNukkitOnly @Since("1.4.0.0-PN") SPY_GLASS,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") SPYGLASS,
     @PowerNukkitOnly @Since("1.4.0.0-PN") COPPER_ORE,
     @PowerNukkitOnly @Since("1.4.0.0-PN") RAW_COPPER,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") COPPER_INGOT,
     @PowerNukkitOnly @Since("1.4.0.0-PN") COPPER_BLOCK,
     @PowerNukkitOnly @Since("1.4.0.0-PN") EXPOSED_COPPER,
     @PowerNukkitOnly @Since("1.4.0.0-PN") WEATHERED_COPPER,
@@ -989,7 +991,14 @@ public enum MinecraftItemID {
     @PowerNukkitOnly @Since("1.4.0.0-PN") AMETHYST_CLUSTER,
     @PowerNukkitOnly @Since("1.4.0.0-PN") BIG_DRIPLEAF,
     @PowerNukkitOnly @Since("1.4.0.0-PN") MOSS_BLOCK,
-    @PowerNukkitOnly @Since("1.4.0.0-PN") MOSS_CARPET
+    @PowerNukkitOnly @Since("1.4.0.0-PN") MOSS_CARPET,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") AMETHYST_BLOCK,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") BUDDING_AMETHYST,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") AZALEA_LEAVES,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") AZALEA_LEAVES_FLOWERED,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") DRIPSTONE_BLOCK,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") POINTED_DRIPSTONE,
+    @PowerNukkitOnly @Since("1.4.0.0-PN") GLOW_INK_SAC
     ;
     private static final Map<String, MinecraftItemID> namespacedIdMap = Arrays.stream(values())
             .flatMap(id-> 

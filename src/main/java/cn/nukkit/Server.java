@@ -2523,6 +2523,7 @@ public class Server {
         Entity.registerEntity("Endermite", EntityEndermite.class);
         Entity.registerEntity("Evoker", EntityEvoker.class);
         Entity.registerEntity("Ghast", EntityGhast.class);
+        Entity.registerEntity("GlowSquid", EntityGlowSquid.class);
         Entity.registerEntity("Goat", EntityGoat.class);
         Entity.registerEntity("Guardian", EntityGuardian.class);
         Entity.registerEntity("Hoglin", EntityHoglin.class);

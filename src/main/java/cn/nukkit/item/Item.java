@@ -21,6 +21,7 @@ import cn.nukkit.nbt.NBTIO;
 import cn.nukkit.nbt.tag.*;
 import cn.nukkit.utils.Binary;
 import cn.nukkit.utils.Config;
+import cn.nukkit.utils.MainLogger;
 import cn.nukkit.utils.Utils;
 import io.netty.util.internal.EmptyArrays;
 import it.unimi.dsi.fastutil.ints.Int2IntArrayMap;
@@ -421,6 +422,7 @@ public class Item implements Cloneable, BlockID, ItemID {
             list[RAW_IRON] = ItemRawIron.class; // 933
             list[RAW_GOLD] = ItemRawGold.class; // 934
             list[AMETHYST_SHARD] = ItemAmethystShard.class; // 935
+            list[GLOW_INK_SAC] = ItemGlowInkSac.class; // 936
 
             for (int i = 0; i < 256; ++i) {
                 if (Block.list[i] != null) {

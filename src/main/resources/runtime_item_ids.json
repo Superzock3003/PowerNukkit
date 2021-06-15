@@ -125,6 +125,26 @@
     "oldId": -329
   },
   {
+    "name": "minecraft:budding_amethyst",
+    "id": -328,
+    "oldId": -328
+  },
+  {
+    "name": "minecraft:amethyst_block",
+    "id": -327,
+    "oldId": -327
+  },
+  {
+    "name": "minecraft:azalea_leaves_flowered",
+    "id": -325,
+    "oldId": -325
+  },
+  {
+    "name": "minecraft:azalea_leaves",
+    "id": -324,
+    "oldId": -324
+  },
+  {
     "name": "minecraft:big_dripleaf",
     "id": -323,
     "oldId": -323
@@ -135,9 +155,19 @@
     "oldId": -320
   },
   {
+    "name": "minecraft:dripstone_block",
+    "id": -317,
+    "oldId": -317
+  },
+  {
     "name": "minecraft:copper_ore",
     "id": -311,
     "oldId": -311
+  },
+  {
+    "name": "minecraft:pointed_dripstone",
+    "id": -308,
+    "oldId": -308
   },
   {
     "name": "minecraft:unknown",
@@ -4226,15 +4256,26 @@
   },
   {
     "name": "minecraft:goat_spawn_egg",
-    "id": 501,
+    "id": 500,
     "oldId": 383,
     "oldData": 128
+  },
+  {
+    "name": "minecraft:glow_squid_spawn_egg",
+    "id": 501,
+    "oldId": 383,
+    "oldData": 129
   },
   {
     "name": "minecraft:axolotl_spawn_egg",
     "id": 502,
     "oldId": 383,
     "oldData": 130
+  },
+  {
+    "name": "minecraft:glow_ink_sac",
+    "id": 503,
+    "oldId": 936
   },
   {
     "name": "minecraft:copper_ingot",

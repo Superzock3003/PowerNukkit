@@ -1,6 +1,6 @@
 package cn.nukkit.block;
 
-public class BlockWeatheredCopper extends BlockCopper {
+public class BlockWeatheredCopper extends BlockCopperBlock {
 
     @Override
     public String getName() {

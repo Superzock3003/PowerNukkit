@@ -13,4 +13,9 @@ public class ItemSpyGlass extends Item {
     public ItemSpyGlass(Integer meta, int count) {
         super(SPY_GLASS, meta, count, "Spy Glass");
     }
+
+    @Override
+    public int getMaxStackSize() {
+        return 1;
+    }
 }

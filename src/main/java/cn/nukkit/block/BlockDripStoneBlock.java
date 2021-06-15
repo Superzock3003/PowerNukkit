@@ -1,28 +1,27 @@
 package cn.nukkit.block;
 
 import cn.nukkit.item.ItemTool;
-import cn.nukkit.level.Level;
 
-public class BlockCopper extends BlockSolid {
+public class BlockDripStoneBlock extends BlockSolid {
 
     @Override
     public String getName() {
-        return "Copper Block";
+        return "Dripstone Block";
     }
 
     @Override
     public int getId() {
-        return COPPER_BLOCK;
+        return DRIPSTONE_BLOCK;
     }
 
     @Override
     public double getHardness() {
-        return 3;
+        return 1.5;
     }
 
     @Override
     public double getResistance() {
-        return 6;
+        return 1;
     }
 
     @Override
@@ -32,20 +31,11 @@ public class BlockCopper extends BlockSolid {
 
     @Override
     public int getToolTier() {
-        return ItemTool.TIER_STONE;
+        return ItemTool.TIER_WOODEN;
     }
 
     @Override
     public boolean canHarvestWithHand() {
         return false;
-    }
-
-    @Override
-    public int onUpdate(int type) {
-        if(type == Level.BLOCK_UPDATE_RANDOM) {
-            this.getLevel().setBlock(this, Block.get(getId() + 1), true, true);
-            return type;
-        }
-        return 0;
     }
 }
