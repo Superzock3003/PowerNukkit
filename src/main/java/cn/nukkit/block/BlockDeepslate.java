@@ -1,11 +1,18 @@
 package cn.nukkit.block;
 
+import cn.nukkit.Player;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.Since;
+import cn.nukkit.blockproperty.BlockProperties;
+import cn.nukkit.blockproperty.CommonBlockProperties;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemTool;
 import cn.nukkit.item.MinecraftItemID;
+import cn.nukkit.math.BlockFace;
 import cn.nukkit.utils.BlockColor;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author LoboMetalurgico
@@ -67,6 +74,12 @@ public class BlockDeepslate extends BlockSolid {
         return new Item[]{MinecraftItemID.COBBLED_DEEPSLATE.get(1)};
     }
 
+    @Nonnull
+    @Override
+    public BlockProperties getProperties() {
+        return new BlockProperties(CommonBlockProperties.PILLAR_AXIS);
+    }
+
     @Override
     public boolean canSilkTouch() {
         return true;
@@ -75,5 +88,11 @@ public class BlockDeepslate extends BlockSolid {
     @Override
     public BlockColor getColor() {
         return BlockColor.DEEPSLATE_GRAY;
+    }
+
+    @Override
+    public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, @Nullable Player player) {
+        setPropertyValue(CommonBlockProperties.PILLAR_AXIS, face.getAxis());
+        return super.place(item, block, target, face, fx, fy, fz, player);
     }
 }

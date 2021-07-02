@@ -50,6 +50,21 @@ public class EntityLightning extends Entity implements EntityLightningStrike {
     protected void initEntity() {
         super.initEntity();
 
+        if(!(this.getLevelBlock() instanceof BlockLightningRod) && !(this.getLevelBlock().down() instanceof BlockLightningRod)) {
+            x:
+            for(int x = -32; x <= 32; x++) {
+                for(int y = -32; y <= 32; y++) {
+                    for(int z = -32; z <= 32; z++) {
+                        Block rod = this.getLevel().getBlock(this.getFloorX() + x, this.getFloorY() + y, this.getFloorZ() + z);
+                        if(rod instanceof BlockLightningRod) {
+                            this.setPosition(new Vector3(rod.x, rod.y + 1, rod.z));
+                            break x;
+                        }
+                    }
+                }
+            }
+        }
+
         this.setHealth(4);
         this.setMaxHealth(4);
 
@@ -214,6 +229,10 @@ public class EntityLightning extends Entity implements EntityLightningStrike {
 
                 for (Entity entity : this.level.getCollidingEntities(bb, this)) {
                     entity.onStruckByLightning(this);
+                }
+                Block rod = this.getLevelBlock().down();
+                if(rod instanceof BlockLightningRod) {
+                    ((BlockLightningRod) rod).onStruckByLightning(this);
                 }
             }
         }

@@ -149,6 +149,9 @@ public class BlockFlowerPot extends BlockFlowable implements BlockEntityHolder<B
             return Item.get(0, 0, 0);
         }
         int id = blockEntity.namedTag.getShort("item");
+        if(id > 255) {
+            id = 255 - id;
+        }
         if (id == 0) {
             return Item.get(0, 0, 0);
         }

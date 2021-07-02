@@ -77,6 +77,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jline.version>3.9.0</jline.version>
         <skipTests>true</skipTests>
+        <sonar.projectKey>PowerNukkit_PowerNukkit</sonar.projectKey>
+        <sonar.organization>powernukkit</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <distributionManagement>
@@ -326,10 +329,16 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
+                    <!-- The semantics of this option are reversed, see MCOMPILER-209. -->
+                    <useIncrementalCompilation>false</useIncrementalCompilation>
+                    <compilerArgs>
+                        <!-- Prevents recompilation due to missing package-info.class, see MCOMPILER-205 -->
+                        <arg>-Xpkginfo:always</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
@@ -344,6 +353,7 @@
                 </dependencies>
                 <configuration>
                     <skipTests>${skipTests}</skipTests>
+                    <trimStackTrace>false</trimStackTrace>
                 </configuration>
             </plugin>
             <plugin>
@@ -445,7 +455,7 @@
                     <prefix>git</prefix>
                     <dateFormat>dd.MM.yyyy '@' HH:mm:ss z</dateFormat>
                     <dateFormatTimeZone>${user.timezone}</dateFormatTimeZone>
-                    <verbose>true</verbose>
+                    <verbose>false</verbose>
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
                     <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties
                     </generateGitPropertiesFilename>
@@ -485,6 +495,39 @@
                         <phase>verify</phase>
                         <goals>
                             <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.2.3</version>
+                <executions>
+                    <execution>
+                        <id>spotbugs</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>spotbugs</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
