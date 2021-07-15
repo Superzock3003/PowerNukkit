@@ -1500,6 +1500,7 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         boolean portal = false;
         boolean scaffolding = false;
         boolean endPortal = false;
+        boolean powderSnow = false;
         for (Block block : this.getCollisionBlocks()) {
             switch (block.getId()) {
                 case BlockID.NETHER_PORTAL:
@@ -1510,6 +1511,9 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     break;
                 case BlockID.END_PORTAL:
                     endPortal = true;
+                    break;
+                case BlockID.POWDER_SNOW:
+                    powderSnow = true;
                     break;
             }
 
@@ -1574,6 +1578,15 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
             }
         } else {
             this.inPortalTicks = 0;
+        }
+        if(powderSnow && this.getInventory().getBoots().getId() != ItemID.LEATHER_BOOTS) {
+            if(this.freezingTicks < 140) {
+                this.freezingTicks++;
+                this.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * freezingTicks));
+            }
+        } else {
+            this.freezingTicks = Math.max(this.freezingTicks - 2, 0);
+            this.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * freezingTicks));
         }
     }
 
@@ -3383,12 +3396,11 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
                     }
                     break;
                 case ProtocolInfo.INVENTORY_TRANSACTION_PACKET:
-                    if (this.isSpectator()) {
+                    InventoryTransactionPacket transactionPacket = (InventoryTransactionPacket) packet;
+                    if (this.isSpectator() && transactionPacket.transactionType != InventoryTransactionPacket.TYPE_USE_ITEM) {
                         this.sendAllInventories();
                         break;
                     }
-
-                    InventoryTransactionPacket transactionPacket = (InventoryTransactionPacket) packet;
 
                     // Nasty hack because the client won't change the right packet in survival when creating netherite stuff
                     // so we are emulating what Mojang should be sending
@@ -4527,6 +4539,14 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         }
     }
 
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    @Override
+    public String getOriginalName() {
+        return "Player";
+    }
+    
+    @Override
     public String getName() {
         return this.username;
     }
@@ -5174,7 +5194,11 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         PlayStatusPacket pk = new PlayStatusPacket();
         pk.status = status;
 
-        this.dataPacket(pk);
+        if (immediate) {
+            this.dataPacketImmediately(pk);
+        } else {
+            this.dataPacket(pk);
+        }
     }
 
     @Override
@@ -6118,6 +6142,15 @@ public class Player extends EntityHuman implements CommandSender, InventoryHolde
         pk.type = TextPacket.TYPE_ANNOUNCEMENT;
         pk.source = source;
         pk.message = message;
+        this.dataPacket(pk);
+    }
+    
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public void completeUsingItem(int itemId, int action) {
+        CompletedUsingItemPacket pk = new CompletedUsingItemPacket();
+        pk.itemId = itemId;
+        pk.action = action;
         this.dataPacket(pk);
     }
     

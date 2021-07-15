@@ -7,6 +7,7 @@ import cn.nukkit.blockproperty.IntBlockProperty;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemBlock;
 import cn.nukkit.item.ItemTool;
+import cn.nukkit.item.enchantment.Enchantment;
 import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.utils.BlockColor;
 
@@ -69,13 +70,18 @@ public class BlockHugeMushroomBrown extends BlockSolidMeta {
 
     @Override
     public Item[] getDrops(Item item) {
-        if (new NukkitRandom().nextRange(1, 20) == 0) {
+        if (item.hasEnchantment(Enchantment.ID_SILK_TOUCH)) {
             return new Item[]{
-                    new ItemBlock(Block.get(BlockID.BROWN_MUSHROOM))
+                    new ItemBlock(Block.get(BlockID.BROWN_MUSHROOM_BLOCK), this.getDamage() == 10 ? 10 : 14)
             };
-        } else {
-            return Item.EMPTY_ARRAY;
         }
+        NukkitRandom random = new NukkitRandom();
+        if (random.nextRange(1, 20) == 1) {
+            return new Item[]{
+                    new ItemBlock(Block.get(BlockID.BROWN_MUSHROOM), 0, random.nextRange(1, 2))
+            };
+        }
+        return Item.EMPTY_ARRAY;
     }
 
     @Override

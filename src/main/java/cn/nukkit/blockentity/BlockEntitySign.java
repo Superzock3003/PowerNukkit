@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 public class BlockEntitySign extends BlockEntitySpawnable {
 
-    private String[] text;
+    protected String[] text;
 
     public BlockEntitySign(FullChunk chunk, CompoundTag nbt) {
         super(chunk, nbt);
@@ -137,7 +137,7 @@ public class BlockEntitySign extends BlockEntitySpawnable {
 
     }
 
-    private static void sanitizeText(String[] lines) {
+    protected static void sanitizeText(String[] lines) {
         for (int i = 0; i < lines.length; i++) {
             // Don't allow excessive text per line.
             if (lines[i] != null) {

@@ -37,10 +37,14 @@ import cn.nukkit.plugin.Plugin;
 import cn.nukkit.potion.Effect;
 import cn.nukkit.scheduler.Task;
 import cn.nukkit.utils.ChunkException;
+import cn.nukkit.utils.TextFormat;
+import cn.nukkit.utils.Utils;
 import co.aikar.timings.Timing;
 import co.aikar.timings.Timings;
 import co.aikar.timings.TimingsHistory;
 import com.google.common.collect.Iterables;
+import it.unimi.dsi.fastutil.ints.IntArrayList;
+import it.unimi.dsi.fastutil.ints.IntCollection;
 import lombok.extern.log4j.Log4j2;
 
 import javax.annotation.Nonnull;
@@ -217,7 +221,7 @@ public abstract class Entity extends Location implements Metadatable {
     @Since("1.3.0.0-PN") public static final int DATA_HITBOX = dynamic(118); //NBT
     @Since("1.3.0.0-PN") public static final int DATA_IS_BUOYANT = dynamic(119); //byte
     @Since("1.5.0.0-PN") @PowerNukkitOnly public static final int DATA_BASE_RUNTIME_ID = dynamic(120); // ???
-    @Since("1.4.0.0-PN") public static final int DATA_FREEZING_EFFECT_STRENGTH = dynamic(121);
+    @Since("1.4.0.0-PN") public static final int DATA_FREEZING_EFFECT_STRENGTH = dynamic(121); // ???
     @Since("1.3.0.0-PN") public static final int DATA_BUOYANCY_DATA = dynamic(122); //string
     @Since("1.4.0.0-PN") public static final int DATA_GOAT_HORN_COUNT = dynamic(123); // ???
     @Since("1.5.0.0-PN") @PowerNukkitOnly public static final int DATA_UPDATE_PROPERTIES = dynamic(124); // ???
@@ -449,7 +453,7 @@ public abstract class Entity extends Location implements Metadatable {
     }
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public float getCurrentHeight() {
         if (isSwimming()) {
             return getSwimmingHeight();
@@ -693,7 +697,7 @@ public abstract class Entity extends Location implements Metadatable {
     }
     
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     public float getSwimmingHeight() {
         return getHeight();
     }
@@ -998,6 +1002,50 @@ public abstract class Entity extends Location implements Metadatable {
         shortNames.put(clazz.getSimpleName(), name);
         return true;
     }
+    
+    @Nonnull
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public static IntCollection getKnownEntityIds() {
+        return knownEntities.keySet().stream()
+                .filter(Utils::isInteger)
+                .mapToInt(Integer::parseInt)
+                .collect(IntArrayList::new, IntArrayList::add, IntArrayList::addAll);
+    }
+
+    @Nonnull
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public static List<String> getSaveIds() {
+        return new ArrayList<>(shortNames.values());
+    }
+
+    @Nonnull
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public static OptionalInt getSaveId(String id) {
+        Class<? extends Entity> entityClass = knownEntities.get(id);
+        if (entityClass == null) {
+            return OptionalInt.empty();
+        }
+        return knownEntities.entrySet().stream()
+                .filter(entry -> entry.getValue().equals(entityClass))
+                .map(Map.Entry::getKey)
+                .filter(Utils::isInteger)
+                .mapToInt(Integer::parseInt)
+                .findFirst();
+    }
+
+    @Nullable
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public static String getSaveId(int id) {
+        Class<? extends Entity> entityClass = knownEntities.get(Integer.toString(id));
+        if (entityClass == null) {
+            return null;
+        }
+        return shortNames.get(entityClass.getSimpleName());
+    }
 
     @Nonnull
     public static CompoundTag getDefaultNBT(@Nonnull Vector3 pos) {
@@ -1087,12 +1135,38 @@ public abstract class Entity extends Location implements Metadatable {
         }
     }
 
+    /**
+     * The name that English name of the type of this entity. 
+     */
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public String getOriginalName() {
+        return this.getSaveId();
+    }
+
+    /**
+     * Similar to {@link #getName()}, but if the name is blank or empty it returns the static name instead.
+     */
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
+    public final String getVisibleName() {
+        String name = getName();
+        if (!TextFormat.clean(name).trim().isEmpty()) {
+            return name;
+        } else {
+            return getOriginalName();
+        }
+    }
+
+    /**
+     * The current name used by this entity in the name tag, or the static name if the entity don't have nametag.
+     */
     @Nonnull
     public String getName() {
         if (this.hasCustomName()) {
             return this.getNameTag();
         } else {
-            return this.getSaveId();
+            return this.getOriginalName();
         }
     }
 
@@ -1838,7 +1912,7 @@ public abstract class Entity extends Location implements Metadatable {
 
             if (fallDistance > 0) {
                 // check if we fell into at least 1 block of water
-                if (this instanceof EntityLiving && !(this.getLevelBlock() instanceof BlockWater)) {
+                if (this instanceof EntityLiving && !(this.getLevelBlock() instanceof BlockWater) && !(this.getLevelBlock() instanceof BlockPowderSnow)) {
                     this.fall(fallDistance);
                 }
                 this.resetFallDistance();
@@ -2321,6 +2395,7 @@ public abstract class Entity extends Location implements Metadatable {
         boolean portal = false;
         boolean scaffolding = false;
         boolean endPortal = false;
+        boolean powderSnow = false;
         for (Block block : this.getCollisionBlocks()) {
             switch (block.getId()) {
                 case Block.NETHER_PORTAL:
@@ -2332,6 +2407,8 @@ public abstract class Entity extends Location implements Metadatable {
                 case BlockID.END_PORTAL:
                     endPortal = true;
                     break;
+                case BlockID.POWDER_SNOW:
+                    powderSnow = true;
             }
 
             block.onEntityCollide(this);
@@ -2397,6 +2474,19 @@ public abstract class Entity extends Location implements Metadatable {
             }
         } else {
             this.inPortalTicks = 0;
+        }
+
+        if(this instanceof EntityLiving) {
+            EntityLiving living = (EntityLiving) this;
+            if(powderSnow) {
+                if(living.freezingTicks < 140) {
+                    living.freezingTicks++;
+                    living.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * living.freezingTicks));
+                }
+            } else {
+                living.freezingTicks = Math.max(living.freezingTicks - 2, 0);
+                this.setDataProperty(new FloatEntityData(DATA_FREEZING_EFFECT_STRENGTH, (1f / 140f) * living.freezingTicks));
+            }
         }
 
         if (vector.lengthSquared() > 0) {
@@ -2565,8 +2655,8 @@ public abstract class Entity extends Location implements Metadatable {
             to = ev.getTo();
         }
 
-        Entity riding = getRiding();
-        if (riding != null && !riding.dismountEntity(this)) {
+        Entity currentRide = getRiding();
+        if (currentRide != null && !currentRide.dismountEntity(this)) {
             return false;
         }
 
@@ -2591,7 +2681,7 @@ public abstract class Entity extends Location implements Metadatable {
     }
 
     public void respawnToAll() {
-        Collection<Player> players = new ArrayList<>(this.hasSpawned.values());
+        Player[] players = this.hasSpawned.values().toArray(Player.EMPTY_ARRAY);
         this.hasSpawned.clear();
 
         for (Player player : players) {

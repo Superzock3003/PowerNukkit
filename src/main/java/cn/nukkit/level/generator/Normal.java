@@ -194,8 +194,6 @@ public class Normal extends Generator {
                 new PopulatorOre(STONE, new OreType[]{
                         new OreType(Block.get(BlockID.DEEPSLATE), 10, 160, 0, 16),
                         new OreType(Block.get(BlockID.TUFF), 2, 160, 0, 16),
-                        new OreType(Block.get(BlockID.AMETHYST_BLOCK), 8, 4, 0, 30),
-                        new OreType(Block.get(BlockID.AMETHYST_CLUSTER), 8, 4, 0, 50),
                         new OreType(Block.get(BlockID.DIRT), 10, 33, 0, 128),
                         new OreType(Block.get(BlockID.GRAVEL), 8, 33, 0, 128),
                         new OreType(Block.get(BlockID.STONE, BlockStone.GRANITE), 10, 33, 0, 80),
@@ -203,15 +201,33 @@ public class Normal extends Generator {
                         new OreType(Block.get(BlockID.STONE, BlockStone.ANDESITE), 10, 33, 0, 80)
                 }),
                 new PopulatorOreDeepslate(new DeepslateOreType[]{
-                        new DeepslateOreType(Block.get(BlockID.COAL_ORE), Block.get(BlockID.DEEPSLATE_COAL_ORE), 20, 37, 0, 128),
-                        new DeepslateOreType(Block.get(BlockID.IRON_ORE), Block.get(BlockID.DEEPSLATE_IRON_ORE), 20, 13, 0, 64),
-                        new DeepslateOreType(Block.get(BlockID.REDSTONE_ORE), Block.get(BlockID.DEEPSLATE_REDSTONE_ORE), 8, 10, 0, 16),
-                        new DeepslateOreType(Block.get(BlockID.LAPIS_ORE), Block.get(BlockID.DEEPSLATE_LAPIS_ORE), 1, 10, 0, 30),
-                        new DeepslateOreType(Block.get(BlockID.GOLD_ORE), Block.get(BlockID.DEEPSLATE_GOLD_ORE), 2, 13, 0, 32),
-                        new DeepslateOreType(Block.get(BlockID.DIAMOND_ORE), Block.get(BlockID.DEEPSLATE_DIAMOND_ORE), 1, 10, 0, 16),
-                        new DeepslateOreType(Block.get(BlockID.COPPER_ORE), Block.get(BlockID.DEEPSLATE_COPPER_ORE), 6, 16, 0, 96),
+                        new DeepslateOreType(Block.get(BlockID.COAL_ORE), Block.get(BlockID.DEEPSLATE_COAL_ORE), 6, 12, 0, 128),
+                        new DeepslateOreType(Block.get(BlockID.COAL_ORE), Block.get(BlockID.DEEPSLATE_COAL_ORE), 4, 17, 0, 108),
+                        new DeepslateOreType(Block.get(BlockID.COAL_ORE), Block.get(BlockID.DEEPSLATE_COAL_ORE), 2, 21, 0, 64),
+
+                        new DeepslateOreType(Block.get(BlockID.IRON_ORE), Block.get(BlockID.DEEPSLATE_IRON_ORE), 6, 4, 0, 60),
+                        new DeepslateOreType(Block.get(BlockID.IRON_ORE), Block.get(BlockID.DEEPSLATE_IRON_ORE), 4, 7, 0, 54),
+                        new DeepslateOreType(Block.get(BlockID.IRON_ORE), Block.get(BlockID.DEEPSLATE_IRON_ORE), 2, 8, 0, 52),
+                        new DeepslateOreType(Block.get(BlockID.IRON_ORE), Block.get(BlockID.DEEPSLATE_IRON_ORE), 2, 9, 0, 48),
+
+                        new DeepslateOreType(Block.get(BlockID.REDSTONE_ORE), Block.get(BlockID.DEEPSLATE_REDSTONE_ORE), 1, 4, 0, 16),
+                        new DeepslateOreType(Block.get(BlockID.REDSTONE_ORE), Block.get(BlockID.DEEPSLATE_REDSTONE_ORE), 1, 6, 0, 12),
+                        new DeepslateOreType(Block.get(BlockID.REDSTONE_ORE), Block.get(BlockID.DEEPSLATE_REDSTONE_ORE), 1, 8, 0, 10),
+
+                        new DeepslateOreType(Block.get(BlockID.LAPIS_ORE), Block.get(BlockID.DEEPSLATE_LAPIS_ORE), 1, 4, 16, 34),
+                        new DeepslateOreType(Block.get(BlockID.LAPIS_ORE), Block.get(BlockID.DEEPSLATE_LAPIS_ORE), 1, 6, 0, 12),
+
+                        new DeepslateOreType(Block.get(BlockID.GOLD_ORE), Block.get(BlockID.DEEPSLATE_GOLD_ORE), 2, 4, 28, 34),
+                        new DeepslateOreType(Block.get(BlockID.GOLD_ORE), Block.get(BlockID.DEEPSLATE_GOLD_ORE), 1, 8, 0, 28),
+
+                        new DeepslateOreType(Block.get(BlockID.DIAMOND_ORE), Block.get(BlockID.DEEPSLATE_DIAMOND_ORE), 1, 8, 0, 16),
+
+                        new DeepslateOreType(Block.get(BlockID.COPPER_ORE), Block.get(BlockID.DEEPSLATE_COPPER_ORE), 6, 8, 0, 96),
+                        new DeepslateOreType(Block.get(BlockID.COPPER_ORE), Block.get(BlockID.DEEPSLATE_COPPER_ORE), 4, 10, 0, 84),
+                        new DeepslateOreType(Block.get(BlockID.COPPER_ORE), Block.get(BlockID.DEEPSLATE_COPPER_ORE), 2, 16, 0, 64),
                 }),
-                new PopulatorCaves()//,
+                new PopulatorCaves(),
+                new AmethystGeodePopulator()//,
                 //new PopulatorRavines()
         );
     }

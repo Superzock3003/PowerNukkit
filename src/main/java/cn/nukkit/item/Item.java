@@ -441,10 +441,12 @@ public class Item implements Cloneable, BlockID, ItemID {
             runtimeMapping.registerNamespacedIdItem(ItemRawIron.class);
             runtimeMapping.registerNamespacedIdItem(ItemRawGold.class);
             runtimeMapping.registerNamespacedIdItem(ItemRawCopper.class);
-            runtimeMapping.registerNamespacedIdItem(ItemCopperIngot.class);
+            runtimeMapping.registerNamespacedIdItem(ItemIngotCopper.class);
             runtimeMapping.registerNamespacedIdItem(ItemAmethystShard.class);
             runtimeMapping.registerNamespacedIdItem(ItemSpyGlass.class);
             runtimeMapping.registerNamespacedIdItem(ItemGlowInkSac.class);
+            runtimeMapping.registerNamespacedIdItem(ItemBucketPowderSnow.class);
+            runtimeMapping.registerNamespacedIdItem(ItemItemFrameGlow.class);
         }
 
         initCreativeItems();
@@ -1079,7 +1081,7 @@ public class Item implements Cloneable, BlockID, ItemID {
     }
 
     @PowerNukkitOnly
-    @Since("FUTURE")
+    @Since("1.5.1.0-PN")
     @Nonnull
     public SideEffect[] getAttackSideEffects(@Nonnull Entity attacker, @Nonnull Entity entity) {
         return Arrays.stream(getEnchantments())
@@ -1669,5 +1671,4 @@ public class Item implements Cloneable, BlockID, ItemID {
             return null;
         }
     }
-
 }

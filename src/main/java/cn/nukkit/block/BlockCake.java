@@ -69,6 +69,14 @@ public class BlockCake extends BlockTransparentMeta {
         return 0.5;
     }
 
+    public int getBites() {
+        return this.getIntValue(BITES);
+    }
+
+    public void setBites(int bites) {
+        this.setIntValue(BITES, bites);
+    }
+
     @PowerNukkitOnly
     @Override
     public int getWaterloggingLevel() {
@@ -77,7 +85,7 @@ public class BlockCake extends BlockTransparentMeta {
 
     @Override
     public double getMinX() {
-        return this.x + (1 + getDamage() * 2) / 16;
+        return this.x + (1 + getBites() * 2) / 16;
     }
 
     @Override
@@ -140,9 +148,17 @@ public class BlockCake extends BlockTransparentMeta {
 
     @Override
     public boolean onActivate(@Nonnull Item item, Player player) {
-        if (player != null && player.getFoodData().getLevel() < player.getFoodData().getMaxLevel()) {
-            if (getDamage() <= 0x06) setDamage(getDamage() + 1);
-            if (getDamage() >= 0x06) {
+        if(this.getBites() == 0 && item.getBlock() instanceof BlockCandleBase) {
+            return false;
+        }
+        if (player != null && (player.isCreative() || player.getFoodData().getLevel() < player.getFoodData().getMaxLevel())) {
+            if(getBites() == 6) {
+                Food.getByRelative(this).eatenBy(player);
+                getLevel().setBlock(this, Block.get(BlockID.AIR), true);
+                return true;
+            }
+            if (getBites() < 6) setBites(getBites() + 1);
+            if (getBites() > 6) {
                 getLevel().setBlock(this, Block.get(BlockID.AIR), true);
             } else {
                 Food.getByRelative(this).eatenBy(player);
@@ -159,7 +175,7 @@ public class BlockCake extends BlockTransparentMeta {
     }
 
     public int getComparatorInputOverride() {
-        return (7 - this.getDamage()) * 2;
+        return (7 - this.getBites()) * 2;
     }
 
     public boolean hasComparatorInputOverride() {

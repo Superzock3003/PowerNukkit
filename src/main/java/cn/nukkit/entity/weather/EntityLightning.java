@@ -1,6 +1,8 @@
 package cn.nukkit.entity.weather;
 
 import cn.nukkit.api.PowerNukkitDifference;
+import cn.nukkit.api.PowerNukkitOnly;
+import cn.nukkit.api.Since;
 import cn.nukkit.block.*;
 import cn.nukkit.blockproperty.value.OxidizationLevel;
 import cn.nukkit.entity.Entity;
@@ -239,10 +241,12 @@ public class EntityLightning extends Entity implements EntityLightningStrike {
 
         return true;
     }
-    
-    
+
+
+    @PowerNukkitOnly
+    @Since("1.5.1.0-PN")
     @Override
-    public String getName() {
+    public String getOriginalName() {
         return "Lightning Bolt";
     }
 }

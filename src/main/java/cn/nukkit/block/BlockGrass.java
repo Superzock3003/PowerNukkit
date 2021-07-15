@@ -157,17 +157,18 @@ public class BlockGrass extends BlockDirt {
                 if (block.getId() == Block.DIRT
                         
                         // It cannot spread to coarse dirt        
-                        && block.getPropertyValue(DIRT_TYPE) == DirtType.NORMAL
-                        
-                        // The dirt block must have a light level of at least 4 above it.
-                        && getLevel().getFullLight(block) >= 4
-                        
+                        && block.getPropertyValue(DIRT_TYPE) == DirtType.NORMAL || block.getId() == Block.DIRT_WITH_ROOTS) {
+                    if (// The dirt block must have a light level of at least 4 above it.
+                        getLevel().getFullLight(block) >= 4
+
                         // Any block directly above the dirt block must not reduce light by 2 levels or more.
                         && block.up().getLightFilter() < 2) {
-                    BlockSpreadEvent ev = new BlockSpreadEvent(block, this, Block.get(BlockID.GRASS));
-                    Server.getInstance().getPluginManager().callEvent(ev);
-                    if (!ev.isCancelled()) {
-                        this.getLevel().setBlock(block, ev.getNewState());
+
+                        BlockSpreadEvent ev = new BlockSpreadEvent(block, this, Block.get(BlockID.GRASS));
+                        Server.getInstance().getPluginManager().callEvent(ev);
+                        if (!ev.isCancelled()) {
+                            this.getLevel().setBlock(block, ev.getNewState());
+                        }
                     }
                 }
             }

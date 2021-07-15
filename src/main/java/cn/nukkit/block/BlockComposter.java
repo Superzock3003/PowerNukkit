@@ -282,7 +282,7 @@ public class BlockComposter extends BlockSolidMeta implements ItemID {
                                   PUMPKIN, CARVED_PUMPKIN, SEA_PICKLE, BROWN_MUSHROOM, RED_MUSHROOM, 
                                   WARPED_ROOTS, CRIMSON_ROOTS, SHROOMLIGHT, AZALEA, BIG_DRIPLEAF, MOSS_BLOCK,
                                   SPORE_BLOSSOM);
-        registerBlocks(85, HAY_BALE, BROWN_MUSHROOM_BLOCK, RED_MUSHROOM_BLOCK, MUSHROOM_STEW);
+        registerBlocks(85, HAY_BALE, BROWN_MUSHROOM_BLOCK, RED_MUSHROOM_BLOCK, MUSHROOM_STEW, FLOWERING_AZALEA);
         registerBlocks(100, CAKE_BLOCK);
 
         registerBlock(50, TALL_GRASS, 0);

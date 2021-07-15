@@ -1,8 +1,8 @@
 package cn.nukkit.item;
 
-public class ItemCopperIngot extends StringItem {
+public class ItemIngotCopper extends StringItem {
 
-    public ItemCopperIngot() {
+    public ItemIngotCopper() {
         super(MinecraftItemID.COPPER_INGOT.getNamespacedId(), "Copper Ingot");
     }
 }

@@ -15,6 +15,7 @@ import cn.nukkit.level.particle.BoneMealParticle;
 import cn.nukkit.math.BlockFace;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.scheduler.Task;
+import cn.nukkit.utils.BlockColor;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -29,7 +30,7 @@ public class BlockDripLeaf extends BlockTransparent {
 
     @Override
     public String getName() {
-        return "Big Drip Leaf";
+        return "Big Dripleaf";
     }
 
     @Override
@@ -72,6 +73,11 @@ public class BlockDripLeaf extends BlockTransparent {
     }
 
     @Override
+    public BlockColor getColor() {
+        return BlockColor.GREEN_BLOCK_COLOR;
+    }
+
+    @Override
     public boolean place(@Nonnull Item item, @Nonnull Block block, @Nonnull Block target, @Nonnull BlockFace face, double fx, double fy, double fz, @Nullable Player player) {
         Block down = this.down();
         if(!(down.isSolid() || down instanceof BlockDripLeaf)) {
@@ -79,7 +85,7 @@ public class BlockDripLeaf extends BlockTransparent {
         }
         this.setPropertyValue(TILTS, DripLeafTilt.NONE);
         this.setPropertyValue(BIG_HEAD, true);
-        this.setPropertyValue(CommonBlockProperties.DIRECTION, player.getDirection().getOpposite());
+        this.setPropertyValue(CommonBlockProperties.DIRECTION, player != null ? player.getDirection().getOpposite() : BlockFace.NORTH);
         if(down instanceof BlockDripLeaf) {
             this.setPropertyValue(CommonBlockProperties.DIRECTION, down.getPropertyValue(CommonBlockProperties.DIRECTION));
             if(this.getLevel().setBlock(this, this, true, true)) {
@@ -94,9 +100,11 @@ public class BlockDripLeaf extends BlockTransparent {
     @Override
     public int onUpdate(int type) {
         if(type == Level.BLOCK_UPDATE_NORMAL) {
-            if(!(this.down() instanceof BlockSolid || this.down() instanceof BlockSolidMeta || this.down() instanceof BlockDripLeaf) || (this.getPropertyValue(BIG_HEAD) == false && !(this.up() instanceof BlockDripLeaf))) {
+            Block down = this.down();
+            if(!(down.isSolid() || down instanceof BlockDripLeaf) || (!this.getPropertyValue(BIG_HEAD) && !(this.up() instanceof BlockDripLeaf))) {
                 this.getLevel().useBreakOn(this);
             }
+            return type;
         }
         return 0;
     }

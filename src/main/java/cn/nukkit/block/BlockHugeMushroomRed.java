@@ -70,13 +70,13 @@ public class BlockHugeMushroomRed extends BlockSolidMeta {
                     new ItemBlock(Block.get(BlockID.RED_MUSHROOM_BLOCK), this.getDamage() == 10 ? 10 : 14)
             };
         }
-        if (new NukkitRandom().nextRange(1, 20) == 0) {
+        NukkitRandom random = new NukkitRandom();
+        if (random.nextRange(1, 20) == 1) {
             return new Item[]{
-                    new ItemBlock(Block.get(BlockID.RED_MUSHROOM))
+                    new ItemBlock(Block.get(BlockID.RED_MUSHROOM), 0, random.nextRange(1, 2))
             };
-        } else {
-            return Item.EMPTY_ARRAY;
         }
+        return Item.EMPTY_ARRAY;
     }
 
     @Override

@@ -228,7 +228,7 @@ public class BlockChest extends BlockTransparentMeta implements Faceable, BlockE
         BlockEntityChest blockEntity = getBlockEntity();
 
         if (blockEntity != null) {
-            return ContainerInventory.calculateRedstone(blockEntity.getInventory());
+            return ContainerInventory.calculateRedstone(blockEntity.getInventoryWithoutCheckingToPair());
         }
 
         return super.getComparatorInputOverride();

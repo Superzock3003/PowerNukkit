@@ -2,6 +2,7 @@ package cn.nukkit.item.randomitem;
 
 import cn.nukkit.item.Item;
 import cn.nukkit.item.enchantment.Enchantment;
+import cn.nukkit.math.NukkitRandom;
 
 import java.util.Random;
 
@@ -15,7 +16,7 @@ public class ConstantItemWithRandomEnchantmentSelector extends ConstantItemSelec
 
     private boolean randomDurability;
 
-    private Random random;
+    private NukkitRandom random;
 
     public ConstantItemWithRandomEnchantmentSelector(int id, Enchantment[] enchantments, int maxEnchantments, boolean maxEnchantLevel, Selector parent) {
         this(id, 0, enchantments, maxEnchantments, maxEnchantLevel, parent);
@@ -50,7 +51,7 @@ public class ConstantItemWithRandomEnchantmentSelector extends ConstantItemSelec
         this.enchantments = enchantments;
         this.maxEnchantments = maxEnchantments;
         this.maxEnchantLevel = maxEnchantLevel;
-        this.random = new Random();
+        this.random = new NukkitRandom();
         this.randomDurability = randomDurability;
     }
 
@@ -60,16 +61,16 @@ public class ConstantItemWithRandomEnchantmentSelector extends ConstantItemSelec
         if(enchantments.length < 1) return item;
         Item item = getItem().clone();
         if(randomDurability && item.getMaxDurability() >= 1) {
-            item.setDamage(random.nextInt(item.getMaxDurability()));
+            item.setDamage(random.nextBoundedInt(item.getMaxDurability()));
         }
         if(item != null) {
             Enchantment[] enchantments = this.enchantments.clone();
-            int amountEnchantments = random.nextInt(maxEnchantments) + 1;
+            int amountEnchantments = random.nextBoundedInt(maxEnchantments) + 1;
             for(int i = 0; i < amountEnchantments; i++) {
                 if(enchantments.length < 1) break;
-                int index = random.nextInt(enchantments.length);
+                int index = random.nextBoundedInt(enchantments.length);
                 Enchantment enchantment = enchantments[index];
-                item.addEnchantment(enchantment.setLevel(maxEnchantLevel ? enchantment.getMaxLevel() : random.nextInt(enchantment.getMaxLevel()) + 1));
+                item.addEnchantment(enchantment.setLevel(maxEnchantLevel ? enchantment.getMaxLevel() : random.nextBoundedInt(enchantment.getMaxLevel()) + 1));
                 Enchantment[] newEnchantments = new Enchantment[enchantments.length - 1];
                 for(int j = 0; j < newEnchantments.length; j++) {
                     newEnchantments[j] = enchantments[j >= index ? j + 1 : j];
